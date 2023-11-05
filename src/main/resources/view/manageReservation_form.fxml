@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="794.0" prefWidth="1342.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.ManageReservationFormController">
+    <children>
+        <TableView layoutX="12.0" layoutY="97.0" prefHeight="684.0" prefWidth="1315.0">
+            <columns>
+                <TableColumn prefWidth="139.19997882843018" text="Vehicle" />
+                <TableColumn prefWidth="1175.199966430664" text="1        2        3        4        5        6        7        8        9        10        11        12        13        14        15        16        17        18        19        20        21        22        23        24        25        26        27        28        29        30        31" />
+            </columns>
+        </TableView>
+        <JFXButton layoutX="1196.0" layoutY="36.0" onAction="#createBtnOnAction" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #4E6EBD;" text="CREATE NEW" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+    </children>
+</AnchorPane>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="631.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.popupWindowVehicle.AddVehicleFormController">
+    <children>
+          <ComboBox layoutX="124.0" layoutY="139.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-background-radius: 10px; -fx-border-radius: 10px;" />
+          <TextField layoutX="124.0" layoutY="278.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
+          <Label layoutX="124.0" layoutY="111.0" prefHeight="27.0" prefWidth="116.0" text="Vehicle Type">
+              <font>
+                  <Font name="System Bold" size="18.0" />
+              </font>
+          </Label>
+          <Label layoutX="124.0" layoutY="248.0" prefHeight="27.0" prefWidth="155.0" text="Manufacture Year">
+              <font>
+                  <Font name="System Bold" size="18.0" />
+              </font>
+          </Label>
+          <Label layoutX="124.0" layoutY="385.0" prefHeight="27.0" prefWidth="135.0" text="Vehicle Model">
+              <font>
+                  <Font name="System Bold" size="18.0" />
+              </font>
+          </Label>
+          <TextField layoutX="124.0" layoutY="412.0" prefHeight="50.0" prefWidth="290.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
+          <Label layoutX="118.0" layoutY="498.0" prefHeight="26.0" prefWidth="282.0" text="Did get a soft copy of vehicle book ?">
+              <font>
+                  <Font name="System Bold" size="16.0" />
+              </font>
+          </Label>
+          <ComboBox layoutX="406.0" layoutY="497.0" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-background-radius: 10PX; -fx-border-radius: 10PX;" />
+          <TextField layoutX="603.0" layoutY="139.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;">
+              <font>
+                  <Font size="14.0" />
+              </font>
+          </TextField>
+          <Label layoutX="603.0" layoutY="111.0" prefHeight="27.0" prefWidth="126.0" text="Vehicle Brand">
+              <font>
+                  <Font name="System Bold" size="18.0" />
+              </font>
+          </Label>
+          <Label layoutX="603.0" layoutY="385.0" prefHeight="27.0" prefWidth="184.0" text="Registered Number">
+              <font>
+                  <Font name="System Bold" size="18.0" />
+              </font>
+          </Label>
+          <ComboBox layoutX="603.0" layoutY="278.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-background-radius: 10px; -fx-border-radius: 10px;" />
+          <Label layoutX="603.0" layoutY="248.0" prefHeight="27.0" prefWidth="164.0" text="Transmission Type">
+              <font>
+                  <Font name="System Bold" size="18.0" />
+              </font>
+          </Label>
+          <TextField layoutX="603.0" layoutY="412.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
+          <Pane prefHeight="74.0" prefWidth="1008.0" style="-fx-background-color: #4E6EBD;" styleClass="calendar" stylesheets="@../../style/pane.css">
+              <children>
+                  <Label layoutX="20.0" layoutY="20.0" prefHeight="17.0" prefWidth="233.0" text="About this vehicle" textFill="WHITE">
+                      <font>
+                          <Font size="23.0" />
+                      </font>
+                  </Label>
+              </children>
+      </Pane>
+          <Pane layoutY="556.0" prefHeight="74.0" prefWidth="1008.0" style="-fx-background-color: D9D9D9;" styleClass="calendar" stylesheets="@../../style/pane2.css">
+              <children>
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="706.0" layoutY="17.0" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CANCEL">
+                      <font>
+                          <Font name="System Bold" size="15.0" />
+                      </font>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="850.0" layoutY="17.0" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-background-color: #4E6EBD;" text="ADD" textFill="WHITE">
+                      <font>
+                          <Font name="System Bold" size="15.0" />
+                      </font>
+                  </JFXButton>
+              </children>
+          </Pane>
+    </children>
+</AnchorPane>

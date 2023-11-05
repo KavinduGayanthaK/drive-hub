@@ -1,0 +1,21 @@
+/* Styling the JFXTabPane */
+.jfx-tab-pane {
+    -fx-background-color: #;
+}
+
+/* Styling the tabs */
+.jfx-tab-pane .tab-header-area .tab {
+    -fx-background-color: <your_color>;
+    -fx-text-fill: <your_text_color>;
+}
+
+/* Styling the selected tab */
+.jfx-tab-pane .tab-header-area .tab:selected {
+    -fx-background-color: <your_color>;
+    -fx-text-fill: <your_text_color>;
+}
+
+/* Styling the content area */
+.jfx-tab-pane .tab-content-area {
+    -fx-background-color: <your_color>;
+}

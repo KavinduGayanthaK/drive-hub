@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
+
 
 public class CancelFormController {
     @FXML
@@ -38,6 +38,7 @@ public class CancelFormController {
     void cancelBtnOnAction(ActionEvent event) throws IOException {
        Stage stage = (Stage) cancelBtn .getScene().getWindow();
        stage.close();
+
 
 
     }

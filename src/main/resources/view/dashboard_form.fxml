@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="794.0" prefWidth="1342.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.DashboardFormController">
+<AnchorPane prefHeight="794.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.DashboardFormController">
    <children>
-      <Pane layoutX="79.0" layoutY="41.0" prefHeight="114.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+      <Pane layoutX="37.0" layoutY="41.0" prefHeight="91.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
          <children>
-            <Pane layoutX="1.0" prefHeight="114.0" prefWidth="16.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: red;" />
+            <Pane layoutX="1.0" prefHeight="91.0" prefWidth="16.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: red;" />
             <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="27.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../asset/icon/icons8-vehicle-50.png" />
@@ -25,9 +24,9 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="402.0" layoutY="41.0" prefHeight="114.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+      <Pane layoutX="365.0" layoutY="41.0" prefHeight="91.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
          <children>
-            <Pane layoutX="1.0" prefHeight="114.0" prefWidth="16.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: #7226C7;" />
+            <Pane layoutX="1.0" prefHeight="91.0" prefWidth="16.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: #7226C7;" />
             <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="27.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../asset/icon/icons8-customer-100.png" />
@@ -40,9 +39,9 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="722.0" layoutY="41.0" prefHeight="114.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+      <Pane layoutX="700.0" layoutY="41.0" prefHeight="91.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
          <children>
-            <Pane layoutX="1.0" prefHeight="114.0" prefWidth="16.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: #00A791;" />
+            <Pane layoutX="1.0" prefHeight="91.0" prefWidth="16.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: #00A791;" />
             <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="27.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../asset/icon/icons8-vehicle-50.png" />
@@ -55,9 +54,9 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="1059.0" layoutY="41.0" prefHeight="114.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+      <Pane layoutX="1030.0" layoutY="41.0" prefHeight="91.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;">
          <children>
-            <Pane layoutX="1.0" prefHeight="114.0" prefWidth="16.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: #FFE221;" />
+            <Pane layoutX="1.0" prefHeight="91.0" prefWidth="16.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: #FFE221;" />
             <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="27.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../asset/icon/icons8-vehicle-50.png" />

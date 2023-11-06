@@ -11,7 +11,11 @@ import java.util.Objects;
 
 public class NavigationBarFormController {
     @FXML
+    private JFXButton reportBtn;
+
+    @FXML
     private AnchorPane root;
+
     @FXML
     private JFXButton dashBoardBtn;
 
@@ -20,14 +24,23 @@ public class NavigationBarFormController {
 
     @FXML
     private JFXButton vehicleBtn;
+    @FXML
+    private JFXButton settingBtn;
     public void initialize() throws IOException {
         dashBoardBtnOnAction(null);
     }
     void setForms(String forms) throws IOException {
-        String[] form= {"/view/dashboard_form.fxml","/view/manageReservation_form.fxml","/view/manageVehicle_form.fxml"};
-        JFXButton[] btn = {dashBoardBtn,vehicleBtn,reservationBtn};
+        String[] form= {
+                "/view/dashboard_form.fxml",
+                "/view/manageReservation_form.fxml",
+                "/view/manageVehicle_form.fxml",
+                "/view/report_form.fxml",
+                "/view/setting_form.fxml"
 
-        AnchorPane load = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(forms)));
+        };
+        JFXButton[] btn = {dashBoardBtn,vehicleBtn,reservationBtn,reportBtn,settingBtn};
+
+        AnchorPane load = FXMLLoader.load((getClass().getResource(forms)));
         root.getChildren().clear();
         root.getChildren().add(load);
 
@@ -46,6 +59,13 @@ public class NavigationBarFormController {
     @FXML
     void manageVehicleBtnOnAction(ActionEvent event) throws IOException {
         setForms("/view/manageVehicle_form.fxml");
-
+    }
+    @FXML
+    void settingBtnOnAction(ActionEvent event) throws IOException {
+        setForms("/view/setting_form.fxml");
+    }
+    @FXML
+    void reportBtnOnAction(ActionEvent event) throws IOException {
+        setForms("/view/report_form.fxml");
     }
 }

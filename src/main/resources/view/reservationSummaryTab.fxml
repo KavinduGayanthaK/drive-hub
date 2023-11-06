@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.JFXButton?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lk.ijse.driveHub.controller.ReservationSummaryTabController"
+            prefHeight="794.0" prefWidth="1342.0">
+    <children>
+        <JFXButton layoutX="1161.0" layoutY="21.0" onAction="#createBtnOnAction" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #4E6EBD;" text="CREATE NEW" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <TableView layoutX="15.0" layoutY="68.0" prefHeight="684.0" prefWidth="1278.0">
+            <columns>
+                <TableColumn prefWidth="87.19997882843018" text="Vehicle" />
+                <TableColumn prefWidth="1227.199966430664" text="1        2        3        4        5        6        7        8        9        10        11        12        13        14        15        16        17        18        19        20        21        22        23        24        25        26        27        28        29        30        31" />
+            </columns>
+        </TableView>
+    </children>
+
+</AnchorPane>

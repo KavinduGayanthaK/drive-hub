@@ -82,7 +82,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="489.0" layoutY="20.0" onAction="#cancelBtnOnAction" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CLOSE">
+                  <JFXButton fx:id="closeBtn" layoutX="489.0" layoutY="20.0" onAction="#cancelBtnOnAction" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CLOSE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

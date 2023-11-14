@@ -32,11 +32,10 @@ public class NavigationBarFormController {
     void setForms(String forms) throws IOException {
         String[] form= {
                 "/view/dashboard_form.fxml",
-                "/view/manageReservation_form.fxml",
                 "/view/manageVehicle_form.fxml",
+                "/view/manageReservation_form.fxml",
                 "/view/report_form.fxml",
                 "/view/setting_form.fxml"
-
         };
         JFXButton[] btn = {dashBoardBtn,vehicleBtn,reservationBtn,reportBtn,settingBtn};
 
@@ -44,6 +43,13 @@ public class NavigationBarFormController {
         root.getChildren().clear();
         root.getChildren().add(load);
 
+        for (int i = 0; i < form.length; i++) {
+            btn[i].setStyle("-fx-background-color:linear-gradient(to right,#00B7D8, #188AF0); -fx-font-size: 18");
+            if (forms.equals(form[i])) {
+                btn[i].setStyle("-fx-background-color:linear-gradient(to right,#188AF0,#00B7D8)");
+            }
+            
+        }
     }
     @FXML
     void dashBoardBtnOnAction(ActionEvent event) throws IOException {

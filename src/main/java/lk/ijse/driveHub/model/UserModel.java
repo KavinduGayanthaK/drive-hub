@@ -14,11 +14,9 @@ public class UserModel {
     public boolean loginUser(UserDto userDto)  {
         try {
             connection = DbConnection.getInstance().getConnection();
-            String sql = "SELECT username,password FROM users WHERE username = ? AND password = ?";
+            String sql = "SELECT * FROM users WHERE password = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-            preparedStatement.setString(1, userDto.getUserName());
-            preparedStatement.setString(2, userDto.getPassword());
+            preparedStatement.setString(1, userDto.getPassword());
 
             ResultSet resultSet = preparedStatement.executeQuery();
             String userName1 = null;

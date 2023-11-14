@@ -1,83 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="631.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.popupWindowVehicle.AddVehicleFormController">
+<AnchorPane prefHeight="626.0" prefWidth="660.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.popupWindowVehicle.AddVehicleFormController">
     <children>
-          <ComboBox layoutX="124.0" layoutY="139.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-background-radius: 10px; -fx-border-radius: 10px;" />
-          <TextField layoutX="124.0" layoutY="278.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
-          <Label layoutX="124.0" layoutY="111.0" prefHeight="27.0" prefWidth="116.0" text="Vehicle Type">
-              <font>
-                  <Font name="System Bold" size="18.0" />
-              </font>
-          </Label>
-          <Label layoutX="124.0" layoutY="248.0" prefHeight="27.0" prefWidth="155.0" text="Manufacture Year">
-              <font>
-                  <Font name="System Bold" size="18.0" />
-              </font>
-          </Label>
-          <Label layoutX="124.0" layoutY="385.0" prefHeight="27.0" prefWidth="135.0" text="Vehicle Model">
-              <font>
-                  <Font name="System Bold" size="18.0" />
-              </font>
-          </Label>
-          <TextField layoutX="124.0" layoutY="412.0" prefHeight="50.0" prefWidth="290.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
-          <Label layoutX="118.0" layoutY="498.0" prefHeight="26.0" prefWidth="282.0" text="Did get a soft copy of vehicle book ?">
+          <ComboBox fx:id="cmbvehicleType" layoutX="27.0" layoutY="137.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+          <Label layoutX="27.0" layoutY="109.0" prefHeight="27.0" prefWidth="116.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Vehicle Type">
               <font>
                   <Font name="System Bold" size="16.0" />
               </font>
           </Label>
-          <ComboBox layoutX="406.0" layoutY="497.0" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-background-radius: 10PX; -fx-border-radius: 10PX;" />
-          <TextField layoutX="603.0" layoutY="139.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;">
+          <Label layoutX="27.0" layoutY="246.0" prefHeight="27.0" prefWidth="155.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Manufacture Year">
+              <font>
+                  <Font name="System Bold" size="16.0" />
+              </font>
+          </Label>
+          <Label layoutX="27.0" layoutY="383.0" prefHeight="27.0" prefWidth="135.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Vehicle Model">
+              <font>
+                  <Font name="System Bold" size="16.0" />
+              </font>
+          </Label>
+          <TextField fx:id="txtVehicleModel" layoutX="27.0" layoutY="410.0" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+          <TextField fx:id="txtVehicleBrand" layoutX="350.0" layoutY="137.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
               <font>
                   <Font size="14.0" />
               </font>
           </TextField>
-          <Label layoutX="603.0" layoutY="111.0" prefHeight="27.0" prefWidth="126.0" text="Vehicle Brand">
+          <Label layoutX="350.0" layoutY="109.0" prefHeight="27.0" prefWidth="126.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Vehicle Brand">
               <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
               </font>
           </Label>
-          <Label layoutX="603.0" layoutY="385.0" prefHeight="27.0" prefWidth="184.0" text="Registered Number">
+          <Label layoutX="350.0" layoutY="383.0" prefHeight="27.0" prefWidth="184.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Registered Number">
               <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
               </font>
           </Label>
-          <ComboBox layoutX="603.0" layoutY="278.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-background-radius: 10px; -fx-border-radius: 10px;" />
-          <Label layoutX="603.0" layoutY="248.0" prefHeight="27.0" prefWidth="164.0" text="Transmission Type">
+          <ComboBox fx:id="cmbTransmissionType" layoutX="350.0" layoutY="276.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+          <Label layoutX="350.0" layoutY="246.0" prefHeight="27.0" prefWidth="164.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Transmission Type">
               <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
               </font>
           </Label>
-          <TextField layoutX="603.0" layoutY="412.0" prefHeight="50.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
-          <Pane prefHeight="74.0" prefWidth="1008.0" style="-fx-background-color: #4E6EBD;" styleClass="calendar" stylesheets="@../../style/pane.css">
+          <TextField fx:id="txtRegisterNumber" layoutX="350.0" layoutY="410.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+          <Pane prefHeight="74.0" prefWidth="660.0" styleClass="calender" stylesheets="@../../style/gradiant.css">
               <children>
                   <Label layoutX="20.0" layoutY="20.0" prefHeight="17.0" prefWidth="233.0" text="About this vehicle" textFill="WHITE">
                       <font>
                           <Font size="23.0" />
                       </font>
                   </Label>
+            <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="209.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../asset/icon/icons8-car-48.png" />
+               </image>
+            </ImageView>
               </children>
       </Pane>
-          <Pane layoutY="556.0" prefHeight="74.0" prefWidth="1008.0" style="-fx-background-color: D9D9D9;" styleClass="calendar" stylesheets="@../../style/pane2.css">
+          <Pane layoutY="556.0" prefHeight="74.0" prefWidth="660.0" styleClass="popupWindowButtonPane" stylesheets="@../../style/uiSettings.css">
               <children>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="706.0" layoutY="17.0" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CANCEL">
+                  <JFXButton fx:id="cancelBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="404.0" layoutY="17.0" onAction="#cancelBtnOnAction" prefHeight="40.0" prefWidth="107.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CANCEL">
                       <font>
                           <Font name="System Bold" size="15.0" />
                       </font>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="850.0" layoutY="17.0" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-background-color: #4E6EBD;" text="ADD" textFill="WHITE">
+                  <JFXButton fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="525.0" layoutY="17.0" onAction="#nextBtnOnAction" prefHeight="40.0" prefWidth="107.0" style="-fx-background-radius: 5px;" styleClass="calender" stylesheets="@../../style/gradiant.css" text="NEXT" textFill="WHITE">
                       <font>
                           <Font name="System Bold" size="15.0" />
                       </font>
                   </JFXButton>
               </children>
           </Pane>
+      <JFXCheckBox fx:id="chbVehicleBook" layoutX="31.0" layoutY="483.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Did get a soft copy of vehicle book ?" />
+      <DatePicker fx:id="txtManufactureYear" layoutX="27.0" layoutY="276.0" prefHeight="40.0" prefWidth="282.0" />
     </children>
 </AnchorPane>

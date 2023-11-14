@@ -1,30 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="794.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.ManageVehicleFormController">
    <children>
       <TabPane layoutX="-2.0" prefHeight="794.0" prefWidth="1342.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="summaryTab" closable="false" text="SUMMARY">
-            <content>
-                <fx:include source="vehicleSummaryTab_form.fxml"/>
-                    </content>
-          </Tab>
           <Tab fx:id="vehicleDetailsTab" text="VEHICLE DETAILS">
             <content>
-             <fx:include source="vehicleDetailsTab.fxml"/>
+             <fx:include source="vehicleDetailsTab.fxml" />
             </content>
           </Tab>
             <Tab fx:id="OwnerDetailsTab" text="OWNER DETAILS">
               <content>
-               <fx:include source="ownerDetailsTab.fxml"/>
+               <fx:include source="ownerDetailsTab.fxml" />
               </content>
             </Tab>
         </tabs>

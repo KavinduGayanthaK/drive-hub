@@ -9,37 +9,37 @@
 
 <AnchorPane prefHeight="794.0" prefWidth="1542.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.NavigationBarFormController">
    <children>
-      <AnchorPane fx:id="root" layoutX="233.0" prefHeight="794.0" prefWidth="1309.0" style="-fx-background-color: white;" />
-      <Pane prefHeight="794.0" prefWidth="231.0" style="-fx-background-color: white;" styleClass="calendar" stylesheets="@../style/pane.css">
+      <AnchorPane fx:id="root" layoutX="231.0" prefHeight="794.0" prefWidth="1312.0" style="-fx-background-color: white;" />
+      <Pane layoutX="-2.0" prefHeight="794.0" prefWidth="234.0" styleClass="calender" stylesheets="@../style/gradiant.css">
          <children>
-            <ImageView fitHeight="192.0" fitWidth="187.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <JFXButton fx:id="dashBoardBtn" alignment="BASELINE_LEFT" layoutX="7.0" layoutY="256.0" onAction="#dashBoardBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px;" styleClass="calendar" stylesheets="@../style/gradiant.css" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="vehicleBtn" alignment="BASELINE_LEFT" layoutX="7.0" layoutY="310.0" onAction="#manageVehicleBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px;" text="Vehicles" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="reservationBtn" alignment="BASELINE_LEFT" layoutX="7.0" layoutY="366.0" onAction="#manageReservationBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px;" text="Reservation" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="settingBtn" alignment="BASELINE_LEFT" layoutX="7.0" layoutY="475.0" onAction="#settingBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px;" text="Setting" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="reportBtn" alignment="BASELINE_LEFT" layoutX="7.0" layoutY="421.0" onAction="#reportBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px;" text="Report" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="192.0" fitWidth="187.0" layoutX="21.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asset/image/Colorful%20Vintage%20Retro%20Car%20Logo.png" />
+                  <Image url="@../asset/image/Colorful_Vintage_Retro_Car_Logo-removebg-preview.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="dashBoardBtn" alignment="TOP_LEFT" layoutX="7.0" layoutY="256.0" onAction="#dashBoardBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px; -fx-background-color: #4E6EBD;" text="Dashboard" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="vehicleBtn" alignment="TOP_LEFT" layoutX="7.0" layoutY="310.0" onAction="#manageVehicleBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px; -fx-background-color: #4E6EBD;" text="Vehicles" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="reservationBtn" alignment="TOP_LEFT" layoutX="7.0" layoutY="366.0" onAction="#manageReservationBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px; -fx-background-color: #4E6EBD;" text="Reservation" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font></JFXButton>
-            <JFXButton fx:id="settingBtn" alignment="TOP_LEFT" layoutX="7.0" layoutY="475.0" onAction="#settingBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px; -fx-background-color: #4E6EBD;" text="Setting" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font></JFXButton>
-            <JFXButton fx:id="reportBtn" alignment="TOP_LEFT" layoutX="7.0" layoutY="421.0" onAction="#reportBtnOnAction" prefHeight="47.0" prefWidth="216.0" style="-fx-border-radius: 10px; -fx-background-color: #4E6EBD;" text="Report" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXButton>
          </children></Pane>
    </children>
 </AnchorPane>

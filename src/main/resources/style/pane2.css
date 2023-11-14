@@ -1,10 +1,6 @@
-/*.calendar{*/
-/*    -fx-border-radius: 10 10 0 0;*/
-/*    -fx-background-radius: 10 10 0 0;*/
+.calendar{
+    -fx-border-radius: 10 10 0 0;
+    -fx-background-radius: 10 10 0 0
 
-/*}*/
-
-.color-mixing-with-sass {
-    /* Sass: equally mix red with white */
-    --blue-white-mix: color-mix(blue, white)
 }
+

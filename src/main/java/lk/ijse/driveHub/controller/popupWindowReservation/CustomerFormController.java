@@ -1,6 +1,7 @@
 package lk.ijse.driveHub.controller.popupWindowReservation;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,29 +18,19 @@ import java.net.URL;
 
 public class CustomerFormController {
     @FXML
+    private JFXCheckBox customerCheckBox;
+    @FXML
     private JFXButton closeBtn;
 
     @FXML
     private JFXButton nextBtn;
 
-    @FXML
-    private JFXButton noBtn;
 
-    @FXML
-    private JFXButton yseBtn;
     static PopupWindows popupWindow = new PopupWindows();
     static CloseWindow closeWindow = new CloseWindow();
 
     @FXML
-    void NoBtnOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void YseBtnOnAction(ActionEvent event) throws IOException {
-      popupWindow.window("/view/popupWindowReservation/selectCustomer_form.fxml","Select Customer");
-      closeWindow.closeWindow(yseBtn);
-
+    void customerCheckBoxOnAction(ActionEvent event) {
 
     }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -13,7 +14,7 @@
     <children>
         <AnchorPane layoutX="230.0" layoutY="-1.0" prefHeight="633.0" prefWidth="772.0">
             <children>
-                <Pane layoutX="-1.0" prefHeight="74.0" prefWidth="777.0" style="-fx-background-color: #4E6EBD;" styleClass="calendar" stylesheets="@../../style/pane.css">
+                <Pane layoutX="-1.0" prefHeight="74.0" prefWidth="777.0" styleClass="calender" stylesheets="@../../style/gradiant.css">
                     <children>
                         <Label layoutX="25.0" layoutY="20.0" prefHeight="17.0" prefWidth="233.0" text="About this customer" textFill="WHITE">
                             <font>
@@ -21,45 +22,47 @@
                             </font>
                         </Label>
                     </children></Pane>
-                <Label layoutX="50.0" layoutY="179.0" prefHeight="27.0" prefWidth="116.0" text="Vehicle Type">
+            <TextField layoutX="46.0" layoutY="206.0" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+                <Label layoutX="50.0" layoutY="179.0" prefHeight="27.0" prefWidth="116.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="First Name">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="470.0" layoutY="206.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;">
+                <TextField layoutX="470.0" layoutY="206.0" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <Label layoutX="470.0" layoutY="179.0" prefHeight="27.0" prefWidth="126.0" text="Vehicle Brand">
+                <Label layoutX="470.0" layoutY="179.0" prefHeight="27.0" prefWidth="126.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Last Name">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="50.0" layoutY="330.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
-                <Label layoutX="50.0" layoutY="303.0" prefHeight="27.0" prefWidth="155.0" text="Manufacture Year">
+                <TextField layoutX="47.0" layoutY="296.0" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+                <Label layoutX="47.0" layoutY="269.0" prefHeight="27.0" prefWidth="155.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Address">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="470.0" layoutY="303.0" prefHeight="27.0" prefWidth="164.0" text="Transmission Type">
+            <TextField layoutX="470.0" layoutY="296.0" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+                <Label layoutX="467.0" layoutY="269.0" prefHeight="27.0" prefWidth="164.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="NIC">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="50.0" layoutY="453.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
-                <Label layoutX="50.0" layoutY="425.0" prefHeight="27.0" prefWidth="135.0" text="Vehicle Model">
+                <TextField layoutX="46.0" layoutY="393.0" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" stylesheets="@../../style/uiSettings.css" />
+                <Label layoutX="46.0" layoutY="365.0" prefHeight="27.0" prefWidth="135.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Mobile Number">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="473.0" layoutY="453.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
-                <Label layoutX="473.0" layoutY="425.0" prefHeight="27.0" prefWidth="184.0" text="Registered Number">
+                <TextField layoutX="469.0" layoutY="393.0" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+                <Label layoutX="469.0" layoutY="365.0" prefHeight="27.0" prefWidth="184.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Email">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <Pane layoutX="-1.0" layoutY="559.0" prefHeight="74.0" prefWidth="777.0" style="-fx-background-color: D9D9D9;" styleClass="calendar" stylesheets="@../../style/pane2.css">
+                <Pane layoutX="-1.0" layoutY="559.0" prefHeight="74.0" prefWidth="777.0" styleClass="popupWindowButtonPane" stylesheets="@../../style/uiSettings.css">
                     <children>
                         <JFXButton fx:id="closeBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="518.0" layoutY="17.0" onAction="#closeBtnOnAction" prefHeight="40.0" prefWidth="107.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CLOSE">
                             <font>
@@ -69,7 +72,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="643.0" layoutY="17.0" onAction="#nextBtnOnAction" prefHeight="40.0" prefWidth="107.0" ripplerFill="BLACK" style="-fx-background-radius: 5px; -fx-background-color: #4E6EBD;" text="NEXT" textFill="WHITE">
+                        <JFXButton fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="643.0" layoutY="17.0" onAction="#nextBtnOnAction" prefHeight="40.0" prefWidth="107.0" ripplerFill="BLACK" style="-fx-background-radius: 5px;" styleClass="calender" stylesheets="@../../style/gradiant.css" text="NEXT &gt;" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="15.0" />
                             </font>
@@ -77,64 +80,60 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </JFXButton>
+                  <JFXButton fx:id="closeBtn1" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="17.0" onAction="#closeBtnOnAction" prefHeight="40.0" prefWidth="107.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="&lt; BACK">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
                     </children>
                 </Pane>
-                <Label layoutX="50.0" layoutY="118.0" prefHeight="26.0" prefWidth="192.0" text="Customer has already ?">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-            <TextField layoutX="50.0" layoutY="206.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
-            <TextField layoutX="473.0" layoutY="330.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;">
+            <JFXCheckBox fx:id="customerCheckBox" layoutX="47.0" layoutY="126.0" onAction="#customerCheckBoxOnAction" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Is this customer allready registered ?">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
-            </TextField>
-            <JFXButton fx:id="yseBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="115.0" onAction="#YseBtnOnAction" prefHeight="26.0" prefWidth="47.0" style="-fx-background-radius: 5px; -fx-background-color: #8fa3d5;" text="YES">
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="customerCheckBox1" layoutX="50.0" layoutY="464.0" onAction="#customerCheckBoxOnAction" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Did get a soft copy of utilityBill ?">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton fx:id="noBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="315.0" layoutY="115.0" onAction="#NoBtnOnAction" prefHeight="27.0" prefWidth="47.0" style="-fx-background-radius: 5px; -fx-background-color: #8fa3d5;" text="NO">
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="customerCheckBox2" layoutX="49.0" layoutY="502.0" onAction="#customerCheckBoxOnAction" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Did get a soft copy of NIC ?">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
+            </JFXCheckBox>
             </children>
         </AnchorPane>
         <Line endX="47.19999694824219" endY="485.0" layoutX="182.0" layoutY="146.0" startX="47.19999694824219" startY="-78.0" />
-        <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="31.0" prefHeight="74.0" prefWidth="155.0" text="Register the  customer" wrapText="true">
+        <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="31.0" prefHeight="74.0" prefWidth="155.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text="Register the  customer" wrapText="true">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="170.0" prefHeight="34.0" prefWidth="110.0" text="Add vehicle" wrapText="true">
+        <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="170.0" prefHeight="34.0" prefWidth="110.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text="Add vehicle" wrapText="true">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" layoutX="59.0" layoutY="299.0" prefHeight="34.0" prefWidth="142.0" text="Add payment" wrapText="true">
+        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" layoutX="59.0" layoutY="299.0" prefHeight="34.0" prefWidth="142.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text="Add payment" wrapText="true">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="14.0" layoutY="169.0" prefHeight="34.0" prefWidth="33.0" text="2.">
+        <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="14.0" layoutY="169.0" prefHeight="34.0" prefWidth="33.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text="2.">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="14.0" layoutY="299.0" prefHeight="34.0" prefWidth="33.0" text="3.">
+        <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="14.0" layoutY="299.0" prefHeight="34.0" prefWidth="33.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text="3.">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="14.0" layoutY="31.0" prefHeight="34.0" prefWidth="33.0" text="1.">
+        <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="14.0" layoutY="31.0" prefHeight="34.0" prefWidth="33.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text="1.">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>

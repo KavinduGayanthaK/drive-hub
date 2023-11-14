@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="579.0" prefWidth="659.0" stylesheets="@../../style/uiSettings.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.popupWindowReservation.UpdateCustomerFormController">
+    <children>
+        <Label layoutX="26.0" layoutY="91.0" prefHeight="27.0" prefWidth="116.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="First Name">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtFirstName" layoutX="22.0" layoutY="119.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </TextField>
+        <Label layoutX="347.0" layoutY="91.0" prefHeight="27.0" prefWidth="126.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Last Name">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtLastName" layoutX="347.0" layoutY="119.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </TextField>
+        <Label layoutX="26.0" layoutY="191.0" prefHeight="27.0" prefWidth="86.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Address">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtAddress" layoutX="22.0" layoutY="221.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" stylesheets="@../../style/uiSettings.css" />
+        <Label layoutX="347.0" layoutY="191.0" prefHeight="27.0" prefWidth="54.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="NIC">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtNic" layoutX="347.0" layoutY="221.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+        <Label layoutX="22.0" layoutY="301.0" prefHeight="27.0" prefWidth="135.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Mobile Number">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtMobileNumber" layoutX="22.0" layoutY="329.0" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+        <Label layoutX="347.0" layoutY="301.0" prefHeight="27.0" prefWidth="184.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="E-mail">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtEmail" layoutX="347.0" layoutY="329.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" />
+        <Pane layoutX="-1.0" prefHeight="62.0" prefWidth="660.0" styleClass="calender" stylesheets="@../../style/gradiant.css">
+            <children>
+                <Label layoutX="8.0" layoutY="10.0" prefHeight="17.0" prefWidth="233.0" text="About this customer" textFill="WHITE">
+                    <font>
+                        <Font size="23.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="221.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../asset/icon/icons8-customer-64.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <Pane layoutY="503.0" prefHeight="78.0" prefWidth="659.0" styleClass="popupWindowButtonPane" stylesheets="@../../style/uiSettings.css">
+            <children>
+                <JFXButton fx:id="closeBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="402.0" layoutY="20.0" onAction="#closeBtnOnAction" prefHeight="34.0" prefWidth="107.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CANCEL">
+                    <font>
+                        <Font name="Segoe UI Bold" size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="updateBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="527.0" layoutY="20.0" onAction="#updateBtnOnAction" prefHeight="34.0" prefWidth="107.0" style="-fx-background-radius: 5px;" styleClass="calender" stylesheets="@../../style/gradiant.css" text="UPDATE" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </Pane>
+        <CheckBox fx:id="chbUtilityBill" layoutX="25.0" layoutY="425.0" mnemonicParsing="false" onAction="#chbUtilityBillOnAction" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Did get a soft copy of utilityBill ?">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </CheckBox>
+        <CheckBox fx:id="chbNicCopy" layoutX="24.0" layoutY="468.0" mnemonicParsing="false" onAction="#chbNicCopyOnAction" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Did get a soft copy of NIC ?">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </CheckBox>
+    </children>
+
+</AnchorPane>

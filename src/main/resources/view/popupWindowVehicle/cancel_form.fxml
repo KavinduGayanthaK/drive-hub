@@ -9,18 +9,18 @@
 
 <AnchorPane prefHeight="208.0" prefWidth="456.0" style="-fx-background-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.popupWindowVehicle.CancelFormController">
    <children>
-      <Circle fill="WHITE" layoutX="44.0" layoutY="33.0" radius="19.0" stroke="#4e6ebd" strokeType="INSIDE" strokeWidth="3.0" />
-      <Text fill="#4e6ebd" layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="2.0" style="-fx-bounds-type: #ffffff;" text="!">
+      <Circle fill="WHITE" layoutX="44.0" layoutY="33.0" radius="19.0" stroke="#40474b" strokeType="INSIDE" strokeWidth="3.0" />
+      <Text fill="#40474b" layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="2.0" style="-fx-bounds-type: #ffffff;" text="!">
          <font>
             <Font size="33.0" />
          </font>
       </Text>
-      <Label layoutX="75.0" layoutY="18.0" prefHeight="18.0" prefWidth="341.0" text="Are you sure you want to cancel ?" textFill="#4e6ebd">
+      <Label layoutX="75.0" layoutY="18.0" prefHeight="18.0" prefWidth="341.0" text="Are you sure you want to cancel ?" textFill="#40474b">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton fx:id="continueBtn" layoutX="310.0" layoutY="154.0" minHeight="40.0" minWidth="132.0" onAction="#continueBtnOnActon" style="-fx-background-color: #4E6EBD; -fx-background-radius: 5px;" text="CONTINUE" textFill="WHITE">
+      <JFXButton fx:id="continueBtn" layoutX="310.0" layoutY="154.0" minHeight="40.0" minWidth="132.0" onAction="#continueBtnOnActon" style="-fx-background-radius: 5px;" styleClass="calender" stylesheets="@../../style/gradiant.css" text="CONTINUE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

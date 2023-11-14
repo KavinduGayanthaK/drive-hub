@@ -14,6 +14,9 @@ public class VehicleFormController {
 
     @FXML
     private JFXButton nextBtn;
+    @FXML
+    private JFXButton backBtn;
+
     static PopupWindows popupWindows = new PopupWindows();
     static CloseWindow closeWindow = new CloseWindow();
 
@@ -26,7 +29,12 @@ public class VehicleFormController {
     void nextBtnOnAction(ActionEvent event) throws IOException {
         popupWindows.window("/view/popupWindowReservation/payment_form.fxml","Payment Form");
         closeWindow.closeWindow(nextBtn);
-
+    }
+    @FXML
+    void backBtnOnAction(ActionEvent event) throws IOException {
+        popupWindows.window("/view/popupWindowReservation/customer_form.fxml","Register Customer");
+        closeWindow.closeWindow(backBtn);
 
     }
+
 }

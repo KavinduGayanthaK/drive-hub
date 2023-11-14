@@ -1,0 +1,38 @@
+.lable {
+    -fx-text-fill:#999292 ;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: Segoe UI;
+}
+
+.text-field {
+    -fx-border-color: #999292;
+    -fx-font-size: 16px;
+    -fx-text-fill: #000000;
+}
+
+.popupWindowStepLable {
+    -fx-text-fill:#999292 ;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-font-family: Segoe UI;
+}
+
+.popupWindowButtonPane {
+    -fx-background-color:#f3f3f3;
+}
+
+.cancelFormTextFill {
+    -fx-text-fill: #40474b;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-font-family: Segoe UI;
+}
+
+.updateBtn {
+    -fx-background-color: linear-gradient(to right,#03a973,#48fdbc);
+}
+
+.deleteBtn {
+    -fx-background-color: linear-gradient(to right, #dc4242, #ff5e5e);
+}

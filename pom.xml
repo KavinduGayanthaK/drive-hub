@@ -39,6 +39,26 @@
             <artifactId>jfoenix</artifactId>
             <version>9.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+        </dependency>
+        <dependency>
+            <groupId>cursors</groupId>
+            <artifactId>cursors</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cursors</groupId>
+            <artifactId>cursors</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cursors</groupId>
+            <artifactId>cursors</artifactId>
+            <version>0.1.0</version>
+        </dependency>
 
 
     </dependencies>

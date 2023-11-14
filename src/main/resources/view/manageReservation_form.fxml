@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="794.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.ManageReservationFormController">
     <children>
-      <TabPane prefHeight="794.0" prefWidth="1309.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="14.0" prefHeight="794.0" prefWidth="1309.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Summary">
+          <Tab fx:id="reservationCalanderTab" text="Reservation Calender">
             <content>
-             <fx:include source="reservationSummaryTab.fxml"/>
+             <fx:include source="reservationCalenderTab.fxml" />
             </content>
           </Tab>
-          <Tab text="Customer Details">
+          <Tab fx:id="customerDetailsTab" text="Customer Details">
             <content>
-              <fx:include source="customerDetailsTab.fxml"/>
+              <fx:include source="customerDetailsTab.fxml" />
             </content>
           </Tab>
-            <Tab text="Reservation Details">
+            <Tab fx:id="reservationDetailsTab" text="Reservation Details">
               <content>
-               <fx:include source="reservationDetailsTab.fxml"/>
+                <fx:include source="reservationDetailsTab.fxml" />
               </content>
             </Tab>
         </tabs>

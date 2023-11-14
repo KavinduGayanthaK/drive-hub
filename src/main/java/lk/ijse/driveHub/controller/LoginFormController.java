@@ -1,5 +1,6 @@
 package lk.ijse.driveHub.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,9 @@ import java.sql.SQLException;
 
 public class LoginFormController {
     @FXML
+    private JFXButton loginBtn;
+
+    @FXML
     private PasswordField txtPassword;
 
     @FXML
@@ -23,21 +27,24 @@ public class LoginFormController {
     private UserModel userModel = new UserModel();
 
     @FXML
-    void loginBtnOnAction(ActionEvent event) throws SQLException, IOException {
+    void logginBtnOnAction(ActionEvent event) throws SQLException, IOException {
 
         String username = txtUserName.getText();
         String password = txtPassword.getText();
         UserDto userDto = new UserDto(username,password);
 
         boolean isChecked = userModel.loginUser(userDto);
-        if (!isChecked) {
-            new Alert(Alert.AlertType.ERROR,"Login successful!");
-        }else{
-            Stage stage = null;
+        if (isChecked) {
+            Stage stage = new Stage();
             stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/navigationBar_form.fxml"))));
             stage.setTitle("DRIVE HUB");
             stage.show();
-        }
+            stage = (Stage) loginBtn.getScene().getWindow();
+            stage.close();
 
-    }
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Login successful!");
+        }
+//
+  }
 }

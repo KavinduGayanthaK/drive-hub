@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import lk.ijse.driveHub.controller.tabPane.OwnerDetailsTabController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +22,5 @@ public class PopupWindows {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setResizable(false);
         stage.show();
-
     }
 }

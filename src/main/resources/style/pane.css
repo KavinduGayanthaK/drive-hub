@@ -3,3 +3,9 @@
     -fx-background-radius: 0 0 10 10;
 
 }
+
+.calendar2{
+    -fx-border-radius: 0 10 0 10;
+    -fx-background-radius: 0 10 0 10;
+
+}

@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.driveHub.controller.ReservationDetailsTabController"
-            prefHeight="794.0" prefWidth="1342.0">
+
+<AnchorPane prefHeight="794.0" prefWidth="1342.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.tabPane.ReservationDetailsTabController">
     <children>
-        <JFXButton layoutX="1161.0" layoutY="21.0" onAction="#createBtnOnAction" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #4E6EBD;" text="CREATE NEW" textFill="WHITE">
+        <JFXButton layoutX="1112.0" layoutY="21.0" onAction="#createReservationBtnOnAction" prefHeight="40.0" prefWidth="181.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px;" styleClass="calender" stylesheets="@../style/gradiant.css" text="CREATE RESERVATION" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
@@ -21,12 +17,15 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <TableView layoutX="15.0" layoutY="68.0" prefHeight="684.0" prefWidth="1278.0">
-            <columns>
-                <TableColumn prefWidth="87.19997882843018" text="Vehicle" />
-                <TableColumn prefWidth="1227.199966430664" />
-            </columns>
-        </TableView>
+        <TableView fx:id="customerTable" layoutX="15.0" layoutY="68.0" prefHeight="684.0" prefWidth="1278.0" style="-fx-background-radius: 5px;">
+         <columns>
+            <TableColumn prefWidth="115.19997882843018" text="Id" />
+            <TableColumn prefWidth="244.80006408691406" text="Vahicle Name" />
+            <TableColumn prefWidth="306.39996337890625" text="Customer Name" />
+            <TableColumn prefWidth="312.8000183105469" text="Reservation Date" />
+            <TableColumn prefWidth="299.99993896484375" text="Return Date" />
+         </columns></TableView>
     </children>
+
 
 </AnchorPane>

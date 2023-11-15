@@ -63,16 +63,22 @@ public class InsuranceFormController implements Initializable {
     @FXML
     void submitBtnOnAction(ActionEvent event) {
         try {
-            VehicleOwnerDto isOwnerSaved = vehicleOwnerModel.saveOwner(VehicleOwnerFormController.vehicleOwnerDto);
-            if (isOwnerSaved != null) {
-                vehicleFormController.setNewOwnerId(isOwnerSaved.getId());
-                //VehicleFormController.vehicleDto.setOwnerId(isOwnerSaved.getId());
-                VehicleDto isVehicleSaved = vehicleModel.saveVehicle(VehicleFormController.vehicleDto);
-                if (isVehicleSaved != null) {
-                    boolean isLicenseSaved = vehicleLicenseModel.saveLicense(LicenseFormController.vehicleLicenseDto);
-                    setValues();
-                    if (isLicenseSaved) {
-                        boolean isInsuranceSaved = vehicleInsuranceModel.saveInsurance(vehicleInsuranceDto);
+            vehicleOwnerModel.saveOwner(VehicleOwnerFormController.vehicleOwnerDto);
+            if (VehicleOwnerFormController.vehicleOwnerDto.getId() != 0) {
+                VehicleFormController.vehicleDto.setOwnerId(VehicleOwnerFormController.vehicleOwnerDto.getId());
+                vehicleModel.saveVehicle(VehicleFormController.vehicleDto);
+                if (VehicleFormController.vehicleDto.getId() != 0) {
+                    LicenseFormController.vehicleLicenseDto.setVehicleId(VehicleFormController.vehicleDto.getId());
+                    vehicleLicenseModel.saveLicense(LicenseFormController.vehicleLicenseDto);
+
+                    if (LicenseFormController.vehicleLicenseDto.getId() != 0) {
+                        vehicleInsuranceDto.setId(0);
+                        vehicleInsuranceDto.setVehicleId(VehicleFormController.vehicleDto.getId());
+                        vehicleInsuranceDto.setInsuranceNumber(txtInsuranceNumber.getText());
+                        vehicleInsuranceDto.setIssueDate(txtIssueDate.getValue());
+                        vehicleInsuranceDto.setExpiryDate(txtxExpiryDate.getValue());
+                        vehicleInsuranceDto.setVehicleId(VehicleFormController.vehicleDto.getId());
+                        vehicleInsuranceModel.saveInsurance(vehicleInsuranceDto);
                     }
                 }
             }
@@ -86,7 +92,6 @@ public class InsuranceFormController implements Initializable {
         vehicleInsuranceDto.setInsuranceNumber(txtInsuranceNumber.getText());
         vehicleInsuranceDto.setIssueDate(txtIssueDate.getValue());
         vehicleInsuranceDto.setExpiryDate(txtxExpiryDate.getValue());
-
     }
     public void add(Stage licenseFormController,Stage insuranceFormController){
         LicenseFormController.licenseFormController = licenseFormController;

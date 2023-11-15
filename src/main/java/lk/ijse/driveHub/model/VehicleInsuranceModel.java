@@ -3,28 +3,34 @@ package lk.ijse.driveHub.model;
 import lk.ijse.driveHub.db.DbConnection;
 import lk.ijse.driveHub.dto.VehicleInsuranceDto;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class VehicleInsuranceModel {
 
     private static Connection connection;
 
-    public boolean saveInsurance(VehicleInsuranceDto vehicleInsuranceDto) throws SQLException {
-        connection = DbConnection.getInstance().getConnection();
-        String sql = "INSERT INTO vehicleInsuranceDetails VALUES";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    public VehicleInsuranceDto saveInsurance(VehicleInsuranceDto vehicleInsuranceDto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "INSERT INTO vehicleInsuranceDetails (vehicleId, insuranceNumber, issueDate, expiryDate) VALUES (?,?,?,?)";
 
-        preparedStatement.setInt(1,vehicleInsuranceDto.getId());
-        preparedStatement.setInt(2,vehicleInsuranceDto.getVehicleId());
-        preparedStatement.setString(3,vehicleInsuranceDto.getInsuranceNumber());
-        preparedStatement.setDate(4, Date.valueOf(vehicleInsuranceDto.getIssueDate()));
-        preparedStatement.setDate(5, Date.valueOf(vehicleInsuranceDto.getExpiryDate()));
+        PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-        boolean isSaved = preparedStatement.executeUpdate() > 0;
+        preparedStatement.setInt(1, vehicleInsuranceDto.getVehicleId());
+        preparedStatement.setString(2, vehicleInsuranceDto.getInsuranceNumber());
+        preparedStatement.setString(3, String.valueOf(vehicleInsuranceDto.getIssueDate()));
+        preparedStatement.setString(4, String.valueOf(vehicleInsuranceDto.getExpiryDate()));
 
-        return isSaved;
+        int rowsAffected = preparedStatement.executeUpdate();
+
+        if (rowsAffected > 0) {
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+
+                int generatedId = generatedKeys.getInt(1);
+                vehicleInsuranceDto.setId(generatedId);
+                return vehicleInsuranceDto;
+            }
+        }
+        return null;
     }
 }

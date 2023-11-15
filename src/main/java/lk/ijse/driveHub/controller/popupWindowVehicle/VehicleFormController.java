@@ -58,7 +58,7 @@ public class VehicleFormController implements Initializable {
     VehicleOwnerDto vehicleOwnerDto = new VehicleOwnerDto();
     VehicleTypeDto vehicleTypeDto = new VehicleTypeDto();
     VehicleTypeModel vehicleTypeModel = new VehicleTypeModel();
-    private int id;
+
 
     @FXML
     void backBtnOnAction(ActionEvent event) throws IOException, SQLException {
@@ -89,8 +89,8 @@ public class VehicleFormController implements Initializable {
         vehicleFormController.close();
     }
 
-    private void setValues() throws SQLException {
-        //vehicleTypeDto.setName(cmbVehicleType.getValue());
+    public void setValues() throws SQLException {
+
         List<VehicleTypeDto> typeDtoList = vehicleTypeModel.getAllVehicleType();
         for (VehicleTypeDto vehicleTypeDtoList:typeDtoList) {
             if (cmbVehicleType.getValue().equals(vehicleTypeDtoList.getName())) {
@@ -99,7 +99,6 @@ public class VehicleFormController implements Initializable {
             }
 
         }
-
         vehicleDto.setId(0);
         vehicleDto.setVehicleTypeId(vehicleTypeDto.getId());
         vehicleDto.setBrand(txtVehicleBrand.getText());
@@ -108,7 +107,7 @@ public class VehicleFormController implements Initializable {
         vehicleDto.setManufactureYear(dateManufactureYear.getValue());
         vehicleDto.setIsCollectedBookCopy(chbVehicleBookValue);
         vehicleDto.setRegisterNumber(txtRegisterNumber.getText());
-        vehicleDto.setOwnerId(id);
+        vehicleDto.setOwnerId(vehicleOwnerDto.getId());
     }
     @FXML
     void chbVehicleBookCopyOnAction(ActionEvent event) {
@@ -150,8 +149,6 @@ public class VehicleFormController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-    public void setNewOwnerId(int ownerId) {
-        id = ownerId;
-    }
+
 
 }

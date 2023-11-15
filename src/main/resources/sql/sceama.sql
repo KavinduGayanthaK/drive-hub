@@ -140,3 +140,4 @@ select * from vehicleOwner;
 
 INSERT INTO vehicle VALUEs(1,'t','1','1','1','1','1','1','1');
 select * from vehicle;
+select * from vehicleLicenseDetails;

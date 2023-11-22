@@ -12,6 +12,7 @@ public class UserDto {
     private String userName;
     private String password;
     private String email;
+    private  String type;
 
     public UserDto(String username, String password) {
         this.userName = username;

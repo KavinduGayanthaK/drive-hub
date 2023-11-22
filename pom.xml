@@ -44,21 +44,20 @@
             <artifactId>lombok</artifactId>
             <version>1.18.26</version>
         </dependency>
+
         <dependency>
-            <groupId>cursors</groupId>
-            <artifactId>cursors</artifactId>
-            <version>0.1.0</version>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>13.0.2</version>
         </dependency>
+
         <dependency>
-            <groupId>cursors</groupId>
-            <artifactId>cursors</artifactId>
-            <version>0.1.0</version>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.20.5</version>
         </dependency>
-        <dependency>
-            <groupId>cursors</groupId>
-            <artifactId>cursors</artifactId>
-            <version>0.1.0</version>
-        </dependency>
+
+
 
 
     </dependencies>

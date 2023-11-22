@@ -10,15 +10,18 @@ import java.time.LocalDate;
 @ToString
 public class VehicleDto {
     private int id;
-    private int vehicleTypeId;
     private String brand;
-    private LocalDate manufactureYear;
-    private String transmissionType;
     private String model;
-    private String registerNumber;
+    private int vehicleTypeId;
     private String isCollectedBookCopy;
+    private LocalDate manufactureYear;
+    private String registerNumber;
+    private String transmissionType;
+    private double perDayRate;
+    private double perDayKm;
+    private double perAdditionalKmRate;
     private int ownerId;
 
 
-
 }
+

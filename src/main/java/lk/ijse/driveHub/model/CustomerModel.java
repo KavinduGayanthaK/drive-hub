@@ -12,10 +12,10 @@ import java.util.List;
 
 public class CustomerModel {
     private Connection connection;
-    public boolean saveCustomer(CustomerDto customerDto) throws SQLException {
+    public CustomerDto saveCustomer(CustomerDto customerDto) throws SQLException {
         connection = DbConnection.getInstance().getConnection();
         String sql = "INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
 
         preparedStatement.setInt(1,customerDto.getId());
         preparedStatement.setString(2,customerDto.getFirstName());
@@ -27,8 +27,18 @@ public class CustomerModel {
         preparedStatement.setString(8,customerDto.getIsUtilityBillSoftCopy());
         preparedStatement.setString(9,customerDto.getIsNicSoftCopy());
 
-        boolean isSaved = preparedStatement.executeUpdate()>0;
-        return isSaved;
+        int rowsAffected = preparedStatement.executeUpdate();
+
+        if (rowsAffected > 0) {
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int generatedId = generatedKeys.getInt(1);
+                customerDto.setId(generatedId);
+
+                return customerDto;
+            }
+        }
+        return null;
     }
 
     public List<CustomerDto> getAllCustomer() throws SQLException {

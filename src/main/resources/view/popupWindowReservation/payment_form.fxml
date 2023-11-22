@@ -35,7 +35,7 @@
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="467.0" layoutY="134.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
+                <TextField fx:id="txtDepositAmount" layoutX="467.0" layoutY="134.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
                     <font>
                         <Font size="15.0" />
                     </font>
@@ -83,12 +83,12 @@
                   </JFXButton>
                     </children>
                 </Pane>
-                <TextField layoutX="470.0" layoutY="258.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
+                <TextField fx:id="txtAmount" layoutX="470.0" layoutY="258.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </TextField>
-            <TextArea layoutX="48.0" layoutY="369.0" prefHeight="168.0" prefWidth="680.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
+            <TextArea fx:id="txtabout" layoutX="48.0" layoutY="369.0" prefHeight="168.0" prefWidth="680.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
                <font>
                   <Font size="15.0" />
                </font></TextArea>
@@ -97,17 +97,17 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <ComboBox layoutX="48.0" layoutY="145.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
-            <ComboBox layoutX="47.0" layoutY="258.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+            <ComboBox fx:id="cmbPaymentMethod" layoutX="48.0" layoutY="145.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+            <ComboBox fx:id="cmbPaymentType" layoutX="47.0" layoutY="258.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
             </children>
         </AnchorPane>
         <Line endX="47.19999694824219" endY="485.0" layoutX="182.0" layoutY="146.0" startX="47.20001220703125" startY="-72.59999084472656" stroke="#999292" />
-        <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="31.0" prefHeight="61.0" prefWidth="155.0" text="Register the  customer" textFill="#4e6ebd" wrapText="true">
+        <Label contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="31.0" prefHeight="27.0" prefWidth="155.0" text="Add vehicle" textFill="#4e6ebd" wrapText="true">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="170.0" prefHeight="34.0" prefWidth="115.0" text="Add vehicle" textFill="#4e6ebd" wrapText="true">
+        <Label contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="158.0" prefHeight="74.0" prefWidth="142.0" text="Register the  customer" textFill="#4e6ebd" wrapText="true">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>

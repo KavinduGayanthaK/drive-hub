@@ -10,47 +10,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="758.0" prefWidth="1152.0" style="-fx-background-color: #4E6EBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.LoginFormController">
+<AnchorPane prefHeight="703.0" prefWidth="1157.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.LoginFormController">
    <children>
-      <AnchorPane layoutX="29.0" layoutY="14.0" prefHeight="734.0" prefWidth="1096.0" style="-fx-background-color: #8fa3d5; -fx-background-radius: 50px; -fx-border-radius: 50px;">
+      <ImageView fitHeight="760.0" fitWidth="1157.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asset/image/Dark%20Modern%20Sign%20Up%20Registration%20Page%20Desktop%20Prototype.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="746.0" layoutY="134.0" prefHeight="490.0" prefWidth="361.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10PX; -fx-border-radius: 10PX;">
+         <effect>
+            <DropShadow height="22.06" radius="10.8625" width="23.39" />
+         </effect>
          <children>
-            <AnchorPane layoutX="37.0" layoutY="21.0" prefHeight="690.0" prefWidth="1027.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20PX; -fx-border-radius: 20PX;">
-               <children>
-                  <ImageView fitHeight="664.0" fitWidth="676.0" layoutX="291.0" layoutY="12.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../asset/image/3995897_2114402.jpg" />
-                     </image>
-                  </ImageView>
-                  <AnchorPane layoutX="69.0" layoutY="79.0" prefHeight="490.0" prefWidth="336.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10PX; -fx-border-radius: 10PX;">
-                     <effect>
-                        <DropShadow height="22.06" radius="10.8625" width="23.39" />
-                     </effect>
-                     <children>
-                        <Label layoutX="14.0" layoutY="14.0" prefHeight="59.0" prefWidth="144.0" text="Loggin">
-                           <font>
-                              <Font name="System Bold" size="41.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtUserName" layoutX="37.0" layoutY="143.0" prefHeight="50.0" prefWidth="258.0" promptText="Username" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;">
-                           <font>
-                              <Font size="14.5" />
-                           </font>
-                        </TextField>
-                        <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="112.0" layoutY="402.0" onAction="#logginBtnOnAction" prefHeight="40.0" prefWidth="118.0" style="-fx-background-color: #4E6EBD;" text="LOG IN" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </JFXButton>
-                        <PasswordField fx:id="txtPassword" layoutX="38.0" layoutY="233.0" prefHeight="50.0" prefWidth="258.0" promptText="Password" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </PasswordField>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="59.0" prefWidth="144.0" text="Loggin">
+               <font>
+                  <Font name="System Bold" size="41.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUserName" layoutX="23.0" layoutY="143.0" prefHeight="50.0" prefWidth="316.0" promptText="Username" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20px; -fx-border-color: #000000; -fx-border-radius: 20px;">
+               <font>
+                  <Font size="14.5" />
+               </font>
+            </TextField>
+            <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="88.0" layoutY="401.0" onAction="#logginBtnOnAction" prefHeight="40.0" prefWidth="177.0" style="-fx-background-radius: 10px;" styleClass="calender" stylesheets="@../style/gradiant.css" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <PasswordField fx:id="txtPassword" layoutX="28.0" layoutY="233.0" prefHeight="50.0" prefWidth="316.0" promptText="Password" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20px; -fx-border-color: #000000; -fx-border-radius: 20px;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Label fx:id="passwordLable" layoutX="188.0" layoutY="294.0" prefHeight="18.0" prefWidth="144.0" />
+            <Label fx:id="userNameLabel" layoutX="188.0" layoutY="202.0" prefHeight="18.0" prefWidth="144.0" />
          </children>
       </AnchorPane>
+      <ImageView fitHeight="507.0" fitWidth="480.0" layoutX="45.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/image/44022-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

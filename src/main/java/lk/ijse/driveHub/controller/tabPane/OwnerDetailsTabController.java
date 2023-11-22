@@ -118,8 +118,8 @@ public class OwnerDetailsTabController {
 
                             OwnerTableDto data = getTableView().getItems().get(getIndex());
                             System.out.println("selectedData: " + data);
-                            boolean isUpdated = deleteBtnOnAction(data.getId(),button);
-                            if (isUpdated) {
+                            boolean deleted = deleteBtnOnAction(data.getId(),button);
+                            if (deleted) {
                                 loadAllOwner();
                             }
                         });
@@ -163,12 +163,19 @@ public class OwnerDetailsTabController {
 
                             OwnerTableDto data = getTableView().getItems().get(getIndex());
                             System.out.println("selectedData: " + data);
-                            boolean isUpdated = deleteBtnOnAction(data.getId(),button);
+                            boolean isUpdated = updateBtnOnAction(data.getId(),button);
                             if (isUpdated) {
                                 loadAllOwner();
                             }
                         });
                     }
+
+                    private boolean updateBtnOnAction(int id, JFXButton button) {
+
+
+                        return false;
+                    }
+
                     @Override
                     public void updateItem(Void item, boolean empty) {
                         super.updateItem(item, empty);

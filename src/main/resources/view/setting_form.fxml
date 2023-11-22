@@ -1,8 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="794.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.SettingFormController">
-
+<AnchorPane prefHeight="794.0" prefWidth="1309.0" style="-fx-background-color: #E8E9EB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.SettingFormController">
+   <children>
+      <AnchorPane layoutX="13.0" layoutY="13.0" prefHeight="767.0" prefWidth="1283.0" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;">
+         <children>
+            <AnchorPane fx:id="root1" layoutX="46.0" layoutY="64.0" prefHeight="638.0" prefWidth="1191.0" styleClass="calender" stylesheets="@../style/gradiant.css">
+               <children>
+                  <AnchorPane layoutX="35.0" layoutY="40.0" prefHeight="200.0" prefWidth="1082.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                     <children>
+                        <Separator layoutX="204.0" orientation="VERTICAL" prefHeight="230.0" prefWidth="7.0" />
+                        <Label layoutX="229.0" layoutY="39.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Current Username" />
+                        <TextField fx:id="txtNewUserName" layoutX="510.0" layoutY="67.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+                        <Label layoutX="511.0" layoutY="39.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="New Username" />
+                        <TextField fx:id="txtConfirmUserName" layoutX="796.0" layoutY="67.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+                        <Label layoutX="798.0" layoutY="39.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Comfirm Username" />
+                        <JFXButton layoutX="876.0" layoutY="155.0" onAction="#userNameChangeBtnOnAction" prefHeight="39.0" prefWidth="160.0" styleClass="calender" stylesheets="@../style/gradiant.css" text="CHANGE" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="201.0" fitWidth="182.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asset/icon/icons8-admin-94.png" />
+                           </image>
+                        </ImageView>
+                        <ComboBox fx:id="cmbCurrentUsername" layoutX="225.0" layoutY="67.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+                        <Label fx:id="lblNewUserName" layoutX="516.0" layoutY="122.0" prefHeight="18.0" prefWidth="118.0" textFill="#f40000">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblConfirmUserName" layoutX="802.0" layoutY="122.0" prefHeight="18.0" prefWidth="118.0" textFill="#f40000">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="35.0" layoutY="351.0" prefHeight="200.0" prefWidth="1082.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                     <children>
+                        <Separator layoutX="204.0" orientation="VERTICAL" prefHeight="230.0" prefWidth="7.0" />
+                        <TextField fx:id="txtNewPassword" layoutX="510.0" layoutY="67.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+                        <Label layoutX="514.0" layoutY="38.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="New Password" />
+                        <TextField fx:id="txtConfirmPassword" layoutX="796.0" layoutY="67.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+                        <Label layoutX="799.0" layoutY="39.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Comfirm Password" />
+                        <JFXButton layoutX="876.0" layoutY="155.0" onAction="#passwordChangeBtnOnAction" prefHeight="39.0" prefWidth="160.0" styleClass="calender" stylesheets="@../style/gradiant.css" text="CHANGE" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="201.0" fitWidth="182.0" layoutX="23.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asset/icon/icons8-password-200.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="230.0" layoutY="39.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Current Username" />
+                        <ComboBox fx:id="cmbCurrentUsername2" layoutX="226.0" layoutY="67.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+                        <Label fx:id="lblNewPassword" layoutX="514.0" layoutY="118.0" prefHeight="18.0" prefWidth="118.0" />
+                        <Label fx:id="lblConfirmPassword" layoutX="799.0" layoutY="118.0" prefHeight="18.0" prefWidth="118.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

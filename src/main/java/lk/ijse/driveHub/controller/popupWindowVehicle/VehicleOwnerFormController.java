@@ -44,8 +44,8 @@ public class VehicleOwnerFormController {
     private TextField txtNumber;
 
     static Stage vehicleOwnerFormController;
-     VehicleFormController vehicleFormController = new VehicleFormController();
-     VehicleOwnerModel vehicleOwnerModel = new VehicleOwnerModel();
+    VehicleFormController vehicleFormController = new VehicleFormController();
+    VehicleOwnerModel vehicleOwnerModel = new VehicleOwnerModel();
     static VehicleOwnerDto vehicleOwnerDto = new VehicleOwnerDto();
 
     @FXML

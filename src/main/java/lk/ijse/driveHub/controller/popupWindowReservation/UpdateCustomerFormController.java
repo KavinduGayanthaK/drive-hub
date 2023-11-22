@@ -1,22 +1,23 @@
 package lk.ijse.driveHub.controller.popupWindowReservation;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import lk.ijse.driveHub.controller.tabPane.CustomerDetailsTabController;
 import lk.ijse.driveHub.dto.CustomerDto;
 import lk.ijse.driveHub.dto.tableDto.CustomerTableDto;
 import lk.ijse.driveHub.model.CustomerModel;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ResourceBundle;
+
+import static lk.ijse.driveHub.controller.tabPane.CustomerDetailsTabController.customerTableDto;
 
 public class UpdateCustomerFormController implements Initializable {
 
@@ -56,16 +57,12 @@ public class UpdateCustomerFormController implements Initializable {
 
     CustomerDto customerDto = new CustomerDto();
     CustomerModel customerModel = new CustomerModel();
+
     CustomerTableDto row;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        txtFirstName.setText(row.getFirstName());
-//        txtLastName.setText(row.getLastName());
-//        txtAddress.setText(row.getAddress());
-//        txtNic.setText(row.getNic());
-//        txtMobileNumber.setText(row.getMobileNumber());
-//        txtEmail.setText(row.getEmail());
+        setData();
     }
 
     @FXML
@@ -95,7 +92,7 @@ public class UpdateCustomerFormController implements Initializable {
 //this method not complete
     @FXML
     void updateBtnOnAction(ActionEvent event) {
-       customerDto.setId(customerDto.getId());
+       customerDto.setId(CustomerDetailsTabController.customerTableDto.getId());
        customerDto.setFirstName(txtFirstName.getText());
        customerDto.setLastName(txtLastName.getText());
        customerDto.setAddress(txtAddress.getText());
@@ -105,20 +102,51 @@ public class UpdateCustomerFormController implements Initializable {
        customerDto.setIsUtilityBillSoftCopy(chbUtilityBillValue);
        customerDto.setIsNicSoftCopy(chbNicCopyValue);
 
-        try {
-            boolean isUpdated = customerModel.updateCustomer(customerDto);
-            if (isUpdated) {
-                new Alert(Alert.AlertType.INFORMATION,"Update successfully!").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-        }
-    }
-    public void catchIndex(int index) {
-        customerDto.setId(index);
+       try {
+           boolean isUpdated = customerModel.updateCustomer(customerDto);
+           if (isUpdated) {
+               new Alert(Alert.AlertType.INFORMATION,"Update successfully!").show();
+               Stage stage = (Stage) updateBtn.getScene().getWindow();
+               stage.close();
+           }
+       } catch (SQLException e) {
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+       }
     }
 
-    public  void setData(CustomerTableDto row) {
-      this.row = row;
+    public  void setData() {
+      txtFirstName.setText(CustomerDetailsTabController.customerTableDto.getFirstName());
+      txtLastName.setText(CustomerDetailsTabController.customerTableDto.getLastName());
+      txtAddress.setText(CustomerDetailsTabController.customerTableDto.getAddress());
+      txtNic.setText(CustomerDetailsTabController.customerTableDto.getNic());
+      txtMobileNumber.setText(CustomerDetailsTabController.customerTableDto.getMobileNumber());
+      txtEmail.setText(CustomerDetailsTabController.customerTableDto.getEmail());
+      boolean utilityBill = setChbUtilityBill();
+      if (utilityBill) {
+          chbUtilityBill.setSelected(true);
+      }else {
+          chbUtilityBill.setSelected(false);
+      }
+
+      boolean nicCopy = setNicCopy();
+      if (nicCopy) {
+          chbNicCopy.setSelected(true);
+      }else {
+          chbNicCopy.setSelected(false);
+      }
+    }
+
+    public boolean setNicCopy() {
+        if (customerTableDto.getNicCopy().equals("Yes")) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setChbUtilityBill() {
+        if (customerTableDto.getUtilityBill().equals("Yes")) {
+            return true;
+        }
+        return false;
     }
 }

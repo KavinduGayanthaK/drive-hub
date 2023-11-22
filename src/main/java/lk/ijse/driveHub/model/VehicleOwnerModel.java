@@ -28,24 +28,15 @@ public class VehicleOwnerModel {
 
         int rowsAffected = preparedStatement.executeUpdate();
 
-        // Check if the row was inserted successfully
         if (rowsAffected > 0) {
-            // Retrieve the generated keys
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-
-            // Check if there are generated keys
             if (generatedKeys.next()) {
-                // Get the generated key (assuming it's an auto-incremented ID)
                 int generatedId = generatedKeys.getInt(1);
-
-                // Set the generated ID in the vehicleOwnerDto
                 vehicleOwnerDto.setId(generatedId);
 
                 return vehicleOwnerDto;
             }
         }
-
-        // If something went wrong or no keys were generated, return null or throw an exception
         return null;
     }
 

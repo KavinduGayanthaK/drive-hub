@@ -13,9 +13,10 @@ import java.time.LocalDate;
 public class PaymentDto {
     private int id;
     private int reservationId;
+    private double depositAmount;
     private double amount;
     private String type;
-    private Text about;
+    private String about;
     private LocalDate date;
 
 }

@@ -27,10 +27,11 @@ public class NavigationBarFormController {
     @FXML
     private JFXButton settingBtn;
     public void initialize() throws IOException {
+
         dashBoardBtnOnAction(null);
     }
     void setForms(String forms) throws IOException {
-        String[] form= {
+        String[] form = {
                 "/view/dashboard_form.fxml",
                 "/view/manageVehicle_form.fxml",
                 "/view/manageReservation_form.fxml",

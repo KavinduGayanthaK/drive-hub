@@ -24,7 +24,6 @@ import lk.ijse.driveHub.model.VehicleTypeModel;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -50,10 +49,22 @@ public class VehicleFormController implements Initializable {
     @FXML
     private TextField txtVehicleModel;
 
+    @FXML
+    private ComboBox<String> cmbVehicleBrand;
+
+    @FXML
+    private ComboBox<String> cmbVehicleModel;
+    @FXML
+    private TextField txtPerAdditionalKmRate;
+    @FXML
+    private TextField txtPerDateRate;
+    @FXML
+    private TextField txtPerDayKm;
+
     private String chbVehicleBookValue;
     PopupWindows popupWindows = new PopupWindows();
     static Stage vehicleFormController = new Stage();
-    static LicenseFormController licenseFormController = new LicenseFormController();
+    LicenseFormController licenseFormController = new LicenseFormController();
     static VehicleDto vehicleDto = new VehicleDto();
     VehicleOwnerDto vehicleOwnerDto = new VehicleOwnerDto();
     VehicleTypeDto vehicleTypeDto = new VehicleTypeDto();
@@ -101,12 +112,15 @@ public class VehicleFormController implements Initializable {
         }
         vehicleDto.setId(0);
         vehicleDto.setVehicleTypeId(vehicleTypeDto.getId());
-        vehicleDto.setBrand(txtVehicleBrand.getText());
-        vehicleDto.setModel(txtVehicleModel.getText());
+        vehicleDto.setBrand(cmbVehicleBrand.getValue());
+        vehicleDto.setModel(cmbVehicleModel.getValue());
         vehicleDto.setTransmissionType(cmbTransmissionType.getValue());
         vehicleDto.setManufactureYear(dateManufactureYear.getValue());
         vehicleDto.setIsCollectedBookCopy(chbVehicleBookValue);
         vehicleDto.setRegisterNumber(txtRegisterNumber.getText());
+        vehicleDto.setPerDayKm(Double.parseDouble(txtPerDayKm.getText()));
+        vehicleDto.setPerDayRate(Double.parseDouble(txtPerDateRate.getText()));
+        vehicleDto.setPerAdditionalKmRate(Double.parseDouble(txtPerAdditionalKmRate.getText()));
         vehicleDto.setOwnerId(vehicleOwnerDto.getId());
     }
     @FXML
@@ -126,14 +140,29 @@ public class VehicleFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cmbVehicleType.setValue(vehicleTypeDto.getName());
-        txtVehicleBrand.setText(vehicleDto.getBrand());
+        cmbVehicleBrand.setValue(vehicleDto.getBrand());
         dateManufactureYear.setValue(vehicleDto.getManufactureYear());
-
         cmbTransmissionType.setValue(vehicleDto.getTransmissionType());
-        txtVehicleModel.setText(vehicleDto.getModel());
+        cmbVehicleModel.setValue(vehicleDto.getModel());
         txtRegisterNumber.setText(vehicleDto.getRegisterNumber());
         loadAllVehicleType();
         cmbTransmissionType.setItems(FXCollections.observableArrayList("Auto","Manual"));
+        cmbVehicleBrand.setItems(FXCollections.observableArrayList("TOYOTA","AUDI","HONDA"));
+        txtPerDayKm.setText(String.valueOf(vehicleDto.getPerDayKm()));
+        txtPerDateRate.setText(String.valueOf(vehicleDto.getPerDayRate()));
+        txtPerAdditionalKmRate.setText(String.valueOf(vehicleDto.getPerAdditionalKmRate()));
+
+        cmbVehicleBrand.setOnAction(e-> {
+            if (cmbVehicleBrand.getSelectionModel().getSelectedItem().equals("TOYOTA")) {
+                setCmbVehicleModelToyota();
+            }
+            if (cmbVehicleBrand.getSelectionModel().getSelectedItem().equals("HONDA")) {
+                setCmbVehicleModelHonda();
+            }
+            if (cmbVehicleBrand.getSelectionModel().getSelectedItem().equals("AUDI")) {
+                setCmbVehicleModelAudi();
+            }
+        });
 
     }
 
@@ -149,6 +178,71 @@ public class VehicleFormController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    void cmbVehicleBrandOnAction(ActionEvent event) {
+
+        if(cmbVehicleBrand.getSelectionModel().getSelectedItem().equals("TOYOTA")) {
+            cmbVehicleModel.setItems(setCmbVehicleModelToyota());
+        }
+    }
+
+    @FXML
+    void cmbVehicleModelOnAction(ActionEvent event) {
+
+    }
+
+    private void setCmbVehicleModelSetValues() {
+
+    }
+    public ObservableList<String> setCmbVehicleModelToyota() {
+        cmbVehicleModel.setItems(FXCollections.observableArrayList(
+                "Corolla HatchBack",
+                "CHR",
+                "Vitz",
+                "Yaris ATIV",
+                "Wigo",
+                "AQUA",
+                "PRIUS",
+                "Corolla Sedan",
+                "AXIO",
+                "Allion"));
+        return null;
+    }
+
+
+    private ObservableList<String> setCmbVehicleModelHonda() {
+        cmbVehicleModel.setItems(FXCollections.observableArrayList(
+                "Fit GE6",
+                "Fit GP1",
+                "Fit GP5",
+                "Fit GP1",
+                "FIT Shuttle",
+                "Insight",
+                "Grace EX",
+                "Grace",
+                "Civic FB1",
+                "Dio"));
+        return null;
+    }
+
+    private ObservableList<String> setCmbVehicleModelAudi() {
+        cmbVehicleModel.setItems(FXCollections.observableArrayList(
+                "A3 Sedan",
+                "A4 Sedan",
+                "A6 Saloon",
+                "A8 L",
+                "Q2",
+                "Q3",
+                "Q5",
+                "Q7",
+                "TT Coupe",
+                "TTS Coupe",
+                "A5 Sportback",
+                "A7 Sportback"));
+        return null;
+    }
+
+
 
 
 }

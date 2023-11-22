@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="794.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.ManageReservationFormController">
     <children>
-      <TabPane layoutY="14.0" prefHeight="794.0" prefWidth="1309.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="798.0" prefWidth="1310.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="reservationCalanderTab" text="Reservation Calender">
             <content>

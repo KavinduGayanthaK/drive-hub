@@ -2,9 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="631.0" prefWidth="997.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.popupWindowReservation.VehicleFormController">
+<AnchorPane prefHeight="631.0" prefWidth="997.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.popupWindowReservation.ReservationVehicleFormController">
     <children>
         <AnchorPane layoutX="230.0" layoutY="-1.0" prefHeight="633.0" prefWidth="772.0">
             <children>
@@ -29,17 +30,12 @@
                      </image>
                   </ImageView>
                     </children></Pane>
-                <Label layoutX="48.0" layoutY="129.0" prefHeight="27.0" prefWidth="116.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Vehicle name">
+                <Label layoutX="24.0" layoutY="100.0" prefHeight="27.0" prefWidth="126.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Pickup Date">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="468.0" layoutY="129.0" prefHeight="27.0" prefWidth="126.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Pickup Date">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-                <Label layoutX="48.0" layoutY="267.0" prefHeight="27.0" prefWidth="155.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Return Date">
+                <Label layoutX="318.0" layoutY="102.0" prefHeight="27.0" prefWidth="155.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Return Date">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
@@ -47,14 +43,6 @@
                 <Pane layoutX="-1.0" layoutY="559.0" prefHeight="74.0" prefWidth="777.0" styleClass="popupWindowButtonPane" stylesheets="@../../style/uiSettings.css">
                     <children>
                         <JFXButton fx:id="closeBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="524.0" layoutY="17.0" onAction="#closeBtnOnAction" prefHeight="40.0" prefWidth="107.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CANCEL">
-                            <font>
-                                <Font name="System Bold" size="15.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </JFXButton>
-                        <JFXButton fx:id="backBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="17.0" onAction="#backBtnOnAction" prefHeight="40.0" prefWidth="107.0" ripplerFill="BLACK" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="&lt; BACK">
                             <font>
                                 <Font name="System Bold" size="15.0" />
                             </font>
@@ -72,23 +60,37 @@
                   </JFXButton>
                     </children>
                 </Pane>
-            <ComboBox layoutX="48.0" layoutY="156.0" prefHeight="50.0" prefWidth="257.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
-            <DatePicker layoutX="468.0" layoutY="156.0" prefHeight="50.0" prefWidth="258.0" stylesheets="@../../style/uiSettings.css" />
-            <DatePicker layoutX="47.0" layoutY="291.0" prefHeight="50.0" prefWidth="258.0" stylesheets="@../../style/uiSettings.css" />
+            <DatePicker fx:id="txtPickUpdate" layoutX="24.0" layoutY="127.0" prefHeight="40.0" prefWidth="258.0" stylesheets="@../../style/uiSettings.css" />
+            <DatePicker fx:id="txtReturnDate" layoutX="317.0" layoutY="126.0" prefHeight="40.0" prefWidth="258.0" stylesheets="@../../style/uiSettings.css" />
+            <JFXButton layoutX="633.0" layoutY="129.0" onAction="#searchBtnOnAction" prefHeight="40.0" prefWidth="95.0" styleClass="calender" stylesheets="@../../style/gradiant.css" text="SEARCH" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <TableView fx:id="vehiclePriceTable" layoutX="24.0" layoutY="192.0" prefHeight="351.0" prefWidth="738.0" stylesheets="@../../style/table.css">
+              <columns>
+                <TableColumn fx:id="vehicleIdColumn" prefWidth="75.0" text="Vehicle Id" />
+                <TableColumn fx:id="vehicleTypeColumn" prefWidth="138.4000244140625" text="Vehicle Type" />
+                  <TableColumn fx:id="vehicleBrandColumn" prefWidth="127.199951171875" text="Vehicle Brand" />
+                  <TableColumn fx:id="VehicleModelColumn" prefWidth="116.0" text="Vehicle Model" />
+                  <TableColumn fx:id="perDayeColumn" prefWidth="92.800048828125" text="Perday Rate" />
+                  <TableColumn fx:id="additionalKmRateColumn" prefWidth="118.40008544921875" text="Additional Km Rate" />
+              </columns>
+            </TableView>
             </children>
         </AnchorPane>
         <Line endX="47.19999694824219" endY="485.0" layoutX="182.0" layoutY="146.0" startX="47.000030517578125" startY="-72.59999084472656" stroke="#999292" />
-        <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="31.0" prefHeight="86.0" prefWidth="155.0" text="Register the  customer" textFill="#4e6ebd" wrapText="true">
+        <Label contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="31.0" prefHeight="27.0" prefWidth="155.0" text="Add vehicle" textFill="#4e6ebd" wrapText="true">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <Label contentDisplay="CENTER" layoutX="53.0" layoutY="170.0" prefHeight="27.0" prefWidth="155.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text=" Add vehicle" wrapText="true">
+        <Label contentDisplay="CENTER" layoutX="53.0" layoutY="162.0" prefHeight="68.0" prefWidth="155.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text="Register the  customer" wrapText="true">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" layoutX="59.0" layoutY="299.0" prefHeight="86.0" prefWidth="142.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text="Add payment" wrapText="true">
+        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="299.0" prefHeight="86.0" prefWidth="142.0" styleClass="popupWindowStepLable" stylesheets="@../../style/uiSettings.css" text="Add payment" wrapText="true">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>

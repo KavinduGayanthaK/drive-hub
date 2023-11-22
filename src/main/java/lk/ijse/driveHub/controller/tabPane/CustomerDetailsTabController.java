@@ -60,6 +60,7 @@ public class CustomerDetailsTabController implements Initializable {
 
 
     ObservableList<CustomerTableDto> observableList = FXCollections.observableArrayList();
+   public static CustomerTableDto customerTableDto = new CustomerTableDto();
 
 
     @FXML
@@ -124,40 +125,9 @@ public class CustomerDetailsTabController implements Initializable {
 
     }
 
-    private boolean updateBtnOnAction(CustomerTableDto data,Button btn) {
-        UpdateCustomerFormController updateCustomerFormController = new UpdateCustomerFormController();
-               btn .setOnAction((e) -> {
-            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
-
-            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,
-                    "Are you want to change details ?", yes, no).showAndWait();
-            if (type.orElse(no) == yes) {
-                updatePopUpWindow();
-
-
-
-            }
-        });
-        return false;
-    }
 
     public void updatePopUpWindow() {
-        URL resource = this.getClass().getResource("/view/popupWindowReservation/updateCustomer_form.fxml");
-        FXMLLoader fxmlLoader = new FXMLLoader(resource);
-        Parent load = null;
-        try {
-            load = fxmlLoader.load();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
-        Stage stage = new Stage();
-        stage.setTitle("Customer Form");
-        stage.setScene(new Scene(load));
-        stage.centerOnScreen();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setResizable(false);
-        stage.show();
+
     }
 
 
@@ -210,7 +180,7 @@ public class CustomerDetailsTabController implements Initializable {
                         btn.setOnAction((ActionEvent event) -> {
 
                             CustomerTableDto data = getTableView().getItems().get(getIndex());
-                            CustomerTableDto customerTableDto = new CustomerTableDto();
+
                             customerTableDto.setId(data.getId());
                             customerTableDto.setFirstName(data.getFirstName());
                             customerTableDto.setLastName(data.getLastName());
@@ -220,7 +190,7 @@ public class CustomerDetailsTabController implements Initializable {
                             customerTableDto.setMobileNumber(data.getMobileNumber());
                             customerTableDto.setNicCopy(data.getNicCopy());
                             customerTableDto.setUtilityBill(data.getUtilityBill());
-                            System.out.println("selectedData: " + data);
+                            //System.out.println("selectedData: " + data);
                             boolean isUpdated = updateBtnOnAction(data,btn);
                             if (isUpdated) {
                                 loadAllCustomer();
@@ -228,6 +198,38 @@ public class CustomerDetailsTabController implements Initializable {
 
                         });
                     }
+                    private boolean updateBtnOnAction(CustomerTableDto data,Button btn) {
+                        UpdateCustomerFormController updateCustomerFormController = new UpdateCustomerFormController();
+                        btn .setOnAction((e) -> {
+                            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+                            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
+
+                            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,
+                                    "Are you want to change details ?", yes, no).showAndWait();
+                            if (type.orElse(no) == yes) {
+
+                                URL resource = this.getClass().getResource("/view/popupWindowReservation/updateCustomer_form.fxml");
+                                FXMLLoader fxmlLoader = new FXMLLoader(resource);
+                                Parent load = null;
+                                try {
+                                    load = fxmlLoader.load();
+                                } catch (IOException ex) {
+                                    throw new RuntimeException(ex);
+                                }
+                                Stage stage = new Stage();
+                                stage.setTitle("Customer Form");
+                                stage.setScene(new Scene(load));
+                                stage.centerOnScreen();
+                                stage.initModality(Modality.APPLICATION_MODAL);
+                                stage.setResizable(false);
+                                stage.show();
+                                updateCustomerFormController.setData();
+
+                            }
+                        });
+                        return false;
+                    }
+
 
                     @Override
                     public void updateItem(Void item, boolean empty) {

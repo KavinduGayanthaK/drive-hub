@@ -13,6 +13,7 @@ public class ReservationDto {
     private int id;
     private int vehicleId;
     private int customerId;
-    private LocalDate reservationDate;
-    private LocalDate returnDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
+
 }

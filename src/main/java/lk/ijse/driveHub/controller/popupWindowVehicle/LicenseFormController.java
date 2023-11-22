@@ -35,7 +35,7 @@ public class LicenseFormController implements Initializable {
     PopupWindows popupWindows = new PopupWindows();
     static Stage licenseFormController;
     static VehicleLicenseDto vehicleLicenseDto = new VehicleLicenseDto();
-    InsuranceFormController insuranceFormController = new InsuranceFormController();
+    static InsuranceFormController insuranceFormController = new InsuranceFormController();
 
     @FXML
     void backBtnOnAction(ActionEvent event) throws IOException, SQLException {

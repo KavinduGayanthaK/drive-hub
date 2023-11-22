@@ -46,6 +46,8 @@ public class AddCustomerFormController {
     private String chbUtilityBillValue = "No";
     private String chbNicCopyValue = "No";
 
+    CustomerDetailsTabController customerDetailsTabController = new CustomerDetailsTabController();
+
 
     @FXML
     void addBtnOnAction(ActionEvent event) {
@@ -63,9 +65,9 @@ public class AddCustomerFormController {
 
         CustomerModel customerModel = new CustomerModel();
         try {
-            boolean isSaved = customerModel.saveCustomer(customerDto);
-            if (isSaved) {
 
+            customerDto = customerModel.saveCustomer(customerDto);
+            if (customerDto.getId() !=0) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer Saved!").show();
                 Stage stage = (Stage) addBtn.getScene().getWindow();
                 stage.close();

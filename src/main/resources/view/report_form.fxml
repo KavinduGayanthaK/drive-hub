@@ -1,8 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="794.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.ReportFormController">
-
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="507.0" prefWidth="381.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px;" stylesheets="@../style/newPane.css">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="shadow2" />
+         </styleClass>
+         <children>
+            <ComboBox fx:id="cmbSelectReport" layoutX="30.0" layoutY="40.0" prefHeight="40.0" prefWidth="211.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: #FFFFFF;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+            <Label layoutX="30.0" layoutY="14.0" prefHeight="18.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Select Report" />
+            <DatePicker fx:id="txtFromDate" layoutX="30.0" layoutY="151.0" prefHeight="40.0" prefWidth="211.0" />
+            <Label layoutX="30.0" layoutY="125.0" prefHeight="18.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="From" />
+            <DatePicker fx:id="txtToDate" layoutX="30.0" layoutY="239.0" prefHeight="40.0" prefWidth="211.0" />
+            <Label layoutX="30.0" layoutY="213.0" prefHeight="18.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="To" />
+            <JFXButton layoutX="159.0" layoutY="362.0" onAction="#GenerateReportBtnOnAction" prefHeight="47.0" prefWidth="191.0" styleClass="calender" stylesheets="@../style/gradiant.css" text="GENERATE REPORT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="reportPane" layoutX="410.0" layoutY="12.0" prefHeight="770.0" prefWidth="877.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px;" stylesheets="@../style/newPane.css">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="shadow2" />
+         </styleClass>
+      </AnchorPane>
+   </children>
 </AnchorPane>

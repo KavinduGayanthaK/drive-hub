@@ -8,17 +8,16 @@
 
 <AnchorPane prefHeight="794.0" prefWidth="1342.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.tabPane.VehicleDetailsTabController">
     <children>
-        <TableView layoutX="49.0" layoutY="67.0" prefHeight="656.0" prefWidth="1244.0">
+        <TableView fx:id="vehicletable" layoutX="49.0" layoutY="67.0" prefHeight="656.0" prefWidth="1244.0" stylesheets="@../style/table.css">
             <columns>
-                <TableColumn prefWidth="66.4000244140625" text="Id" />
-                <TableColumn prefWidth="166.40003967285156" text="Brand" />
-            <TableColumn prefWidth="160.79998779296875" text="Model" />
-            <TableColumn prefWidth="146.39996337890625" text="Type" />
-            <TableColumn prefWidth="84.79998779296875" text="BookCopy" />
-            <TableColumn prefWidth="199.20001220703125" text="Manufacture Year" />
-            <TableColumn prefWidth="165.5999755859375" text="Rgistered Number" />
-            <TableColumn prefWidth="112.0" text="Transmission Type" />
-            <TableColumn prefWidth="145.5999755859375" text="Owner" />
+                <TableColumn fx:id="idColumn" prefWidth="66.4000244140625" text="Id" />
+                <TableColumn fx:id="brandColumn" prefWidth="166.40003967285156" text="Brand" />
+            <TableColumn fx:id="modelColumn" prefWidth="160.79998779296875" text="Model" />
+            <TableColumn fx:id="typeColumn" prefWidth="146.39996337890625" text="Type" />
+            <TableColumn fx:id="bookColumn" prefWidth="84.79998779296875" text="BookCopy" />
+            <TableColumn fx:id="manufactureYearColumn" prefWidth="199.20001220703125" text="Manufacture Year" />
+            <TableColumn fx:id="registerNumberColumn" prefWidth="165.5999755859375" text="Rgistered Number" />
+            <TableColumn fx:id="transMissionTypeColumn" prefWidth="112.0" text="Transmission Type" />
             </columns>
         </TableView>
         <JFXButton fx:id="createVehicleBtn" layoutX="1143.0" layoutY="14.0" onAction="#createVehicleBtnOnAction" prefHeight="40.0" prefWidth="149.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px;" styleClass="calender" stylesheets="@../style/gradiant.css" text="CREATE VEHICLE" textFill="WHITE">

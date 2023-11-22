@@ -25,6 +25,7 @@ public class LoginFormController {
     @FXML
     private TextField txtUserName;
     private UserModel userModel = new UserModel();
+    public static UserDto loginUser;
 
     @FXML
     void logginBtnOnAction(ActionEvent event) throws SQLException, IOException {
@@ -43,7 +44,7 @@ public class LoginFormController {
             stage.close();
 
         }else{
-            new Alert(Alert.AlertType.ERROR,"Login successful!");
+            new Alert(Alert.AlertType.ERROR,"Login Unsuccessful!");
         }
 //
   }

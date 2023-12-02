@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="458.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.RegisterUserFormController">
+   <children>
+      <TextField fx:id="txtUserName" layoutX="22.0" layoutY="50.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+      <Label layoutX="22.0" layoutY="14.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Username" />
+      <TextField fx:id="txtPassword" layoutX="22.0" layoutY="137.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+      <Label layoutX="22.0" layoutY="110.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Passowrd" />
+      <TextField fx:id="txtEmail" layoutX="22.0" layoutY="222.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+      <Label layoutX="28.0" layoutY="194.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Email" />
+      <Label layoutX="28.0" layoutY="282.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Type" />
+      <ComboBox fx:id="cmbType" layoutX="22.0" layoutY="309.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+      <JFXButton fx:id="registerBtn" layoutX="252.0" layoutY="397.0" onAction="#RegisterBtnOnAction" prefHeight="39.0" prefWidth="160.0" styleClass="calender" stylesheets="@../style/gradiant.css" text="REGISTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

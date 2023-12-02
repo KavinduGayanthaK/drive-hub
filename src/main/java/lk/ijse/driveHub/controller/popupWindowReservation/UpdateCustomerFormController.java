@@ -63,6 +63,8 @@ public class UpdateCustomerFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setData();
+        setNicCopy();
+        setChbUtilityBill();
     }
 
     @FXML
@@ -102,6 +104,7 @@ public class UpdateCustomerFormController implements Initializable {
        customerDto.setIsUtilityBillSoftCopy(chbUtilityBillValue);
        customerDto.setIsNicSoftCopy(chbNicCopyValue);
 
+
        try {
            boolean isUpdated = customerModel.updateCustomer(customerDto);
            if (isUpdated) {
@@ -121,32 +124,23 @@ public class UpdateCustomerFormController implements Initializable {
       txtNic.setText(CustomerDetailsTabController.customerTableDto.getNic());
       txtMobileNumber.setText(CustomerDetailsTabController.customerTableDto.getMobileNumber());
       txtEmail.setText(CustomerDetailsTabController.customerTableDto.getEmail());
-      boolean utilityBill = setChbUtilityBill();
-      if (utilityBill) {
-          chbUtilityBill.setSelected(true);
-      }else {
-          chbUtilityBill.setSelected(false);
-      }
 
-      boolean nicCopy = setNicCopy();
-      if (nicCopy) {
-          chbNicCopy.setSelected(true);
-      }else {
-          chbNicCopy.setSelected(false);
-      }
     }
 
-    public boolean setNicCopy() {
+    public void setNicCopy() {
         if (customerTableDto.getNicCopy().equals("Yes")) {
-            return true;
+            chbNicCopy.setSelected(true);
+        }else {
+            chbNicCopy.setSelected(false);
         }
-        return false;
+
     }
 
-    public boolean setChbUtilityBill() {
+    public void setChbUtilityBill() {
         if (customerTableDto.getUtilityBill().equals("Yes")) {
-            return true;
+            chbUtilityBill.setSelected(true);
+        }else {
+            chbUtilityBill.setSelected(false);
         }
-        return false;
     }
 }

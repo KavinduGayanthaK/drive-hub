@@ -66,12 +66,17 @@
                         </ImageView>
                         <Label layoutX="230.0" layoutY="39.0" prefHeight="27.0" prefWidth="182.0" styleClass="lable" stylesheets="@../style/uiSettings.css" text="Current Username" />
                         <ComboBox fx:id="cmbCurrentUsername2" layoutX="226.0" layoutY="67.0" prefHeight="48.0" prefWidth="249.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
-                        <Label fx:id="lblNewPassword" layoutX="514.0" layoutY="118.0" prefHeight="18.0" prefWidth="118.0" />
-                        <Label fx:id="lblConfirmPassword" layoutX="799.0" layoutY="118.0" prefHeight="18.0" prefWidth="118.0" />
+                        <Label fx:id="lblNewPassword" layoutX="514.0" layoutY="118.0" prefHeight="18.0" prefWidth="118.0" textFill="#f40000" />
+                        <Label fx:id="lblConfirmPassword" layoutX="799.0" layoutY="118.0" prefHeight="18.0" prefWidth="118.0" textFill="#f40000" />
                      </children>
                   </AnchorPane>
                </children>
             </AnchorPane>
+            <JFXButton layoutX="1038.0" layoutY="14.0" onAction="#registerNewUserBtnOnAction" prefHeight="39.0" prefWidth="199.0" styleClass="calender" stylesheets="@../style/gradiant.css" text="REGISTER NEW USER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </children>

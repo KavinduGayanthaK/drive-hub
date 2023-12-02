@@ -19,5 +19,6 @@ public class CustomerDto implements Serializable {
     private String email;
     private String isUtilityBillSoftCopy;
     private String isNicSoftCopy;
+    private String status;
 
 }

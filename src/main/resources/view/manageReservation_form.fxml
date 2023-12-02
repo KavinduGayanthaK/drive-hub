@@ -23,6 +23,11 @@
                 <fx:include source="reservationDetailsTab.fxml" />
               </content>
             </Tab>
+            <Tab fx:id="completeReservationDetailsTab" text="Complete Reservation">
+               <content>
+                  <fx:include source="completeReservationTab_form.fxml" />
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
     </children>

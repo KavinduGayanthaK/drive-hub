@@ -36,4 +36,15 @@ public class PaymentModel {
         }
         return null;
     }
+    public double transaction() throws SQLException {
+        connection = DbConnection.getInstance().getConnection();
+        String sql = "SELECT SUM(amount) AS totalTransaction FROM payment";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        double transaction = 0;
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            transaction = resultSet.getInt(1);
+        }
+        return transaction;
+    }
 }

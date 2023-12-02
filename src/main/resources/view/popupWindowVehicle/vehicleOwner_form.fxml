@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -26,57 +25,57 @@
                   <String fx:value="calendar" />
                   <String fx:value="calender" />
                </styleClass></Pane>
-            <TextField fx:id="txtFirstName" layoutX="50.0" layoutY="188.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
+            <TextField fx:id="txtFirstName" layoutX="50.0" layoutY="152.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
                <font>
                   <Font size="15.0" />
                </font></TextField>
-            <Label layoutX="50.0" layoutY="160.0" prefHeight="27.0" prefWidth="99.0" text="First Name" textFill="#999292">
+            <Label layoutX="50.0" layoutY="124.0" prefHeight="27.0" prefWidth="99.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="First Name" textFill="#999292">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtLastName" layoutX="473.0" layoutY="188.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" stylesheets="@../../style/uiSettings.css">
+            <TextField fx:id="txtLastName" layoutX="473.0" layoutY="152.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" stylesheets="@../../style/uiSettings.css">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Label layoutX="473.0" layoutY="160.0" prefHeight="27.0" prefWidth="99.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Last Name">
+            <Label layoutX="473.0" layoutY="124.0" prefHeight="27.0" prefWidth="99.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Last Name">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtAddress" layoutX="50.0" layoutY="336.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
+            <TextField fx:id="txtAddress" layoutX="50.0" layoutY="306.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
                <font>
                   <Font size="15.0" />
                </font></TextField>
-            <Label layoutX="50.0" layoutY="308.0" prefHeight="27.0" prefWidth="99.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Address">
+            <Label layoutX="50.0" layoutY="278.0" prefHeight="27.0" prefWidth="99.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Address">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNic" layoutX="473.0" layoutY="336.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+            <TextField fx:id="txtNic" layoutX="473.0" layoutY="306.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;">
                <font>
                   <Font size="15.0" />
                </font></TextField>
-            <Label layoutX="473.0" layoutY="308.0" prefHeight="27.0" prefWidth="99.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="NIC">
+            <Label layoutX="473.0" layoutY="278.0" prefHeight="27.0" prefWidth="99.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="NIC">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNumber" layoutX="50.0" layoutY="487.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
+            <TextField fx:id="txtNumber" layoutX="50.0" layoutY="467.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
                <font>
                   <Font size="15.0" />
                </font></TextField>
-            <Label layoutX="50.0" layoutY="459.0" prefHeight="27.0" prefWidth="135.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Mobile Number">
+            <Label layoutX="50.0" layoutY="439.0" prefHeight="27.0" prefWidth="135.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Mobile Number">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtMail" layoutX="473.0" layoutY="487.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
+            <TextField fx:id="txtMail" layoutX="473.0" layoutY="467.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
                <font>
                   <Font size="15.0" />
                </font></TextField>
-            <Label layoutX="473.0" layoutY="459.0" prefHeight="27.0" prefWidth="135.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="E-mail">
+            <Label layoutX="473.0" layoutY="439.0" prefHeight="27.0" prefWidth="135.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="E-mail">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -88,23 +87,38 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="closeBtn" layoutX="489.0" layoutY="20.0" onAction="#cancelBtnOnAction" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CLOSE">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="closeBtn1" layoutX="27.0" layoutY="17.0" onAction="#cancelBtnOnAction" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="&lt; BACK">
+                  <JFXButton fx:id="cancelBtn" layoutX="489.0" layoutY="20.0" onAction="#cancelBtnOnAction" prefHeight="40.0" prefWidth="132.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CANCEL">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
                </children>
             </Pane>
-            <JFXCheckBox fx:id="ownerCheckBox" layoutX="50.0" layoutY="115.0" onAction="#ownerCheckBoxOnAction" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Is this owner allready registered ?">
+            <Label fx:id="lblNic" layoutX="473.0" layoutY="386.0" prefHeight="18.0" prefWidth="206.0" textFill="#f40000">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font size="13.0" />
                </font>
-            </JFXCheckBox>
+            </Label>
+            <Label fx:id="lblFirstName" layoutX="50.0" layoutY="238.0" prefHeight="18.0" prefWidth="206.0" textFill="#f40000">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMobileNumber" layoutX="50.0" layoutY="537.0" prefHeight="18.0" prefWidth="206.0" textFill="#f40000">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmail" layoutX="473.0" layoutY="537.0" prefHeight="18.0" prefWidth="206.0" textFill="#f40000">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblLastName" layoutX="473.0" layoutY="238.0" prefHeight="18.0" prefWidth="206.0" textFill="#f40000">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Line endX="47.19999694824219" endY="485.0" layoutX="182.0" layoutY="146.0" startX="47.19999694824219" startY="-72.39999389648438" stroke="#999292" />

@@ -5,12 +5,11 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lk.ijse.driveHub.controller.closeWindow.CloseWindow;
+import lk.ijse.driveHub.controller.popupWindowVehicle.LicenseFormController;
+import lk.ijse.driveHub.controller.popupWindowVehicle.VehicleFormController;
 import lk.ijse.driveHub.dto.PaymentDto;
 import lk.ijse.driveHub.model.CustomerModel;
 import lk.ijse.driveHub.model.PaymentModel;
@@ -22,6 +21,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class PaymentFormController implements Initializable {
@@ -77,7 +77,16 @@ public class PaymentFormController implements Initializable {
                     setValues();
                     paymentModel.savePayment(paymentDto);
                     if (paymentDto.getId() != 0) {
-                        new Alert(Alert.AlertType.INFORMATION,"Reservation added").show();
+                        ButtonType ok = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+                        Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,
+                                "Saved successfully", ok).showAndWait();
+                        if (type.isPresent()) {
+                            VehicleFormController.clearDto();
+                            LicenseFormController.clearDto();
+
+                            Stage stage = (Stage) submitBtn.getScene().getWindow();
+                            stage.close();
+                        }
                     }
                 }
             }

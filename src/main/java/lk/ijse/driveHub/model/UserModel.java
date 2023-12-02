@@ -13,30 +13,22 @@ import java.util.List;
 
 public class UserModel {
     static Connection connection = null;
-    public boolean loginUser(UserDto userDto)  {
-        try {
+    public List<UserDto> loginUser() throws SQLException {
+
             connection = DbConnection.getInstance().getConnection();
-            String sql = "SELECT * FROM users WHERE password = ?";
+            String sql = "SELECT * FROM users ";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, userDto.getPassword());
-
+            UserDto userDto = new UserDto();
             ResultSet resultSet = preparedStatement.executeQuery();
-            String userName1 = null;
-            String password1 = null;
+            List<UserDto> userDtoList = new ArrayList<>();
             while (resultSet.next()) {
-               userName1 =  resultSet.getString(2);
-                password1 = resultSet.getString(3);
-                break;
+              userDtoList.add(new UserDto(resultSet.getInt(1),
+                      resultSet.getString(2),
+                      resultSet.getString(3),
+                      resultSet.getString(4),
+                      resultSet.getString(5)));
             }
-
-            if (userName1.equals(userDto.getUserName()) &&  password1.equals(userDto.getPassword())) {
-                return true;
-            }
-            return false;
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+            return userDtoList;
     }
 
     public List<UserDto> loadAllUser() throws SQLException {
@@ -79,5 +71,19 @@ public class UserModel {
 
         boolean isUpdate = preparedStatement.executeUpdate() > 0;
         return isUpdate;
+    }
+
+    public boolean saveUser(UserDto userDto) throws SQLException {
+        connection = DbConnection.getInstance().getConnection();
+        String sql = "INSERT INTO user VALUES(?,?,?,?,?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userDto.getId());
+        preparedStatement.setString(2,userDto.getUserName());
+        preparedStatement.setString(3,userDto.getPassword());
+        preparedStatement.setString(4,userDto.getEmail());
+        preparedStatement.setString(5,userDto.getType());
+
+        boolean isSaved = preparedStatement.executeUpdate() > 0;
+        return isSaved;
     }
 }

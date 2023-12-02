@@ -61,6 +61,7 @@ public class AddCustomerFormController {
         customerDto.setEmail(txtEmail.getText());
         customerDto.setIsUtilityBillSoftCopy(chbUtilityBillValue);
         customerDto.setIsNicSoftCopy(chbNicCopyValue);
+        customerDto.setStatus("Active");
 
 
         CustomerModel customerModel = new CustomerModel();

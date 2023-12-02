@@ -2,6 +2,7 @@ package lk.ijse.driveHub.dto.tableDto;
 
 import lombok.*;
 
+import java.awt.*;
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -15,7 +16,9 @@ public class ReservationTableDto {
     private String vehicleModel;
     private String registeredNumber;
     private String customerName;
-    private LocalDate reservationDate;
-    private LocalDate returnDate;
+    private String reservationDate;
+    private String returnDate;
+    private String status;
+
 
 }

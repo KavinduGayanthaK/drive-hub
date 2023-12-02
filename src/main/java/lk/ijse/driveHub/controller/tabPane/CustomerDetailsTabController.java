@@ -61,6 +61,7 @@ public class CustomerDetailsTabController implements Initializable {
 
     ObservableList<CustomerTableDto> observableList = FXCollections.observableArrayList();
    public static CustomerTableDto customerTableDto = new CustomerTableDto();
+    CustomerModel customerModel = new CustomerModel();
 
 
     @FXML
@@ -89,18 +90,16 @@ public class CustomerDetailsTabController implements Initializable {
         mobileNumbercolumn.setCellValueFactory(new PropertyValueFactory<>("MobileNumber"));
         utilityBillColumn.setCellValueFactory(new PropertyValueFactory<>("UtilityBill"));
         nicSoftCopyColumn.setCellValueFactory(new PropertyValueFactory<>("NicCopy"));
-
     }
 
     public  void loadAllCustomer() {
         updateButtonToTable();
-        deleteButtonToTable();
-        var model = new CustomerModel();
+        deActivateButtonToTable();
         CustomerTableDto customerTableDto = new CustomerTableDto();
 
 
         try {
-            List<CustomerDto> customerDtoList = model.getAllCustomer();
+            List<CustomerDto> customerDtoList = customerModel.getAllCustomer();
 
             for (CustomerDto customerDto : customerDtoList) {
                 observableList.add(
@@ -139,7 +138,6 @@ public class CustomerDetailsTabController implements Initializable {
         if (txtSearch.equals("")) {
             loadAllCustomer();
         } else {
-            CustomerModel customerModel = new CustomerModel();
             ObservableList<CustomerTableDto> observableList = FXCollections.observableArrayList();
             try {
                 List<CustomerDto> list = customerModel.searchCustomerTable(txtSearch);
@@ -200,11 +198,11 @@ public class CustomerDetailsTabController implements Initializable {
                     }
                     private boolean updateBtnOnAction(CustomerTableDto data,Button btn) {
                         UpdateCustomerFormController updateCustomerFormController = new UpdateCustomerFormController();
-                        btn .setOnAction((e) -> {
+
                             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
                             ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
 
-                            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,
+                            Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION,
                                     "Are you want to change details ?", yes, no).showAndWait();
                             if (type.orElse(no) == yes) {
 
@@ -226,10 +224,8 @@ public class CustomerDetailsTabController implements Initializable {
                                 updateCustomerFormController.setData();
 
                             }
-                        });
                         return false;
                     }
-
 
                     @Override
                     public void updateItem(Void item, boolean empty) {
@@ -252,20 +248,20 @@ public class CustomerDetailsTabController implements Initializable {
         customerTable.getColumns().add(colBtn);
     }
 
-    private void deleteButtonToTable() {
+    private void deActivateButtonToTable() {
         TableColumn<CustomerTableDto, Void> colBtn = new TableColumn("Action");
         Callback<TableColumn<CustomerTableDto, Void>, TableCell<CustomerTableDto, Void>> cellFactory = new Callback<>() {
             @Override
             public TableCell<CustomerTableDto, Void> call(final TableColumn<CustomerTableDto, Void> param) {
                 final TableCell<CustomerTableDto, Void> cell = new TableCell<CustomerTableDto, Void>() {
-                    private  JFXButton btn = new JFXButton("delete");
+                    private  JFXButton btn = new JFXButton("deActivate");
                     {
                         btn.setOnAction((ActionEvent event) -> {
 
                             CustomerTableDto data = getTableView().getItems().get(getIndex());
                             System.out.println("selectedData: " + data);
-                            boolean isdelete = deleteBtnOnAction(data,btn);
-                            if (isdelete) {
+                            boolean isDeActivate = deActivateBtnOnAction(data,btn);
+                            if (isDeActivate) {
                                 loadAllCustomer();
                             }
                         });
@@ -291,30 +287,81 @@ public class CustomerDetailsTabController implements Initializable {
         customerTable.getColumns().add(colBtn);
     }
 
-    public  boolean deleteBtnOnAction(CustomerTableDto data,Button btn) {
-        btn.setOnAction((e) -> {
+    public  boolean deActivateBtnOnAction(CustomerTableDto data,Button btn) {
+
             ButtonType yes = new ButtonType("Yes",ButtonBar.ButtonData.YES);
             ButtonType no = new ButtonType("No",ButtonBar.ButtonData.NO);
 
             Optional<ButtonType> type = new Alert(
-                    Alert.AlertType.INFORMATION,"Do you want to customer delete",yes,no).showAndWait();
+                    Alert.AlertType.CONFIRMATION,"Do you want to customer deActivate",yes,no).showAndWait();
             if (type.orElse(no) == yes) {
-                CustomerModel customerModel = new CustomerModel();
                 try {
-                    boolean isDeleted = customerModel.deleteCustomer(data.getId());
-                    if (isDeleted) {
-                        customerTable.refresh();
-                    }
+                    boolean isDeActivate = customerModel.changeStatus(data.getId(),"deActivate");
+                    if (isDeActivate) {
 
+                    }
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-
             }
-                }
-                );
+
         return false;
     }
 
+    private void activateButtonToTable() {
+        TableColumn<CustomerTableDto, Void> colBtn = new TableColumn("Action");
+        Callback<TableColumn<CustomerTableDto, Void>, TableCell<CustomerTableDto, Void>> cellFactory = new Callback<>() {
+            @Override
+            public TableCell<CustomerTableDto, Void> call(final TableColumn<CustomerTableDto, Void> param) {
+                final TableCell<CustomerTableDto, Void> cell = new TableCell<CustomerTableDto, Void>() {
+                    private  JFXButton btn = new JFXButton("activate");
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
 
+                            CustomerTableDto data = getTableView().getItems().get(getIndex());
+                            System.out.println("selectedData: " + data);
+                            boolean activate = activateBtnOnAction(data,btn);
+                            if (activate) {
+                                loadAllCustomer();
+                            }
+                        });
+                    }
+
+                    private boolean activateBtnOnAction(CustomerTableDto customerTableDto, JFXButton btn) {
+                        UpdateCustomerFormController updateCustomerFormController = new UpdateCustomerFormController();
+                        btn .setOnAction((e) -> {
+                            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+                            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
+
+                            Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION,
+                                    "Do you want to customer activate ?", yes, no).showAndWait();
+                            if (type.orElse(no) == yes) {
+
+
+                            }
+
+                            });
+                        return false;
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+
+                            setGraphic(null);
+                        } else {
+                            btn.setCursor(Cursor.HAND);
+                            btn.setStyle("-fx-background-color: #cc0808");
+
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+        colBtn.setCellFactory(cellFactory);
+        customerTable.getColumns().add(colBtn);
+    }
 }

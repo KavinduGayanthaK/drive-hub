@@ -61,7 +61,7 @@
                     </children>
                 </Pane>
             <DatePicker fx:id="txtIssueDate" layoutX="470.0" layoutY="142.0" prefHeight="50.0" prefWidth="258.0" />
-            <DatePicker fx:id="txtxExpiryDate" layoutX="50.0" layoutY="258.0" prefHeight="50.0" prefWidth="258.0" />
+            <DatePicker fx:id="txtExpiryDate" layoutX="50.0" layoutY="258.0" prefHeight="50.0" prefWidth="258.0" />
             </children>
         </AnchorPane>
         <Line endX="47.19999694824219" endY="485.0" layoutX="182.0" layoutY="146.0" startX="47.19999694824219" startY="-78.0" stroke="#999292" />

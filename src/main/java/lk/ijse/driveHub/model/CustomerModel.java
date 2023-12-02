@@ -14,7 +14,7 @@ public class CustomerModel {
     private Connection connection;
     public CustomerDto saveCustomer(CustomerDto customerDto) throws SQLException {
         connection = DbConnection.getInstance().getConnection();
-        String sql = "INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
 
         preparedStatement.setInt(1,customerDto.getId());
@@ -26,6 +26,7 @@ public class CustomerModel {
         preparedStatement.setString(7,customerDto.getEmail());
         preparedStatement.setString(8,customerDto.getIsUtilityBillSoftCopy());
         preparedStatement.setString(9,customerDto.getIsNicSoftCopy());
+        preparedStatement.setString(10,customerDto.getStatus());
 
         int rowsAffected = preparedStatement.executeUpdate();
 
@@ -59,7 +60,8 @@ public class CustomerModel {
                             resultSet.getString(6),
                             resultSet.getString(7),
                             resultSet.getString(8),
-                            resultSet.getString(9)
+                            resultSet.getString(9),
+                            resultSet.getString(10)
                     ));
         }
         return customerDto;
@@ -74,7 +76,7 @@ public class CustomerModel {
                 "number = ?," +
                 "nic = ?," +
                 "email = ?," +
-                "isUtilityBillSoftCopy = ?," +
+                "isUtilityBillSoftCopy = ?, " +
                 "isNicSoftCopy = ?" +
                 " WHERE id = ?";
 
@@ -89,8 +91,8 @@ public class CustomerModel {
         preparedStatement.setString(8,customerDto.getIsNicSoftCopy());
         preparedStatement.setInt(9,customerDto.getId());
 
-        boolean isUpdated = preparedStatement.executeUpdate() > 0;
-        return isUpdated;
+
+        return preparedStatement.executeUpdate() > 0;
     }
     public CustomerDto searchCustomer(int id) throws SQLException {
         connection = DbConnection.getInstance().getConnection();
@@ -133,23 +135,35 @@ public class CustomerModel {
                             resultSet.getString(6),
                             resultSet.getString(7),
                             resultSet.getString(8),
-                            resultSet.getString(9)
+                            resultSet.getString(9),
+                            resultSet.getString(10)
                     ));
         }
         return customerDto;
     }
 
-    public boolean deleteCustomer(int id) throws SQLException {
+    public boolean changeStatus(int id,String status) throws SQLException {
         connection = DbConnection.getInstance().getConnection();
-        String sql = "DELETE FROM customer WHERE id = ?";
+        String sql = "UPDATE customer SET status = ? WHERE id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        preparedStatement.setInt(1, id);
+        preparedStatement.setString(1, status);
+        preparedStatement.setInt(2,id);
 
-        boolean isDeleted =  preparedStatement.executeUpdate() > 0;
-        return isDeleted;
+        boolean isStatus =  preparedStatement.executeUpdate() > 0;
+        return isStatus;
     }
 
+    public int customerCount() throws SQLException {
+        connection = DbConnection.getInstance().getConnection();
+        String sql = "SELECT COUNT(*) AS numberOfCustomer FROM customer";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        int count = 0;
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            count = resultSet.getInt(1);
+        }
+        return count;
+    }
 
 }
-

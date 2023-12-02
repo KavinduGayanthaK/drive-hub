@@ -84,6 +84,7 @@ CREATE TABLE customer (
     email varchar(150) NOT NULL ,
     isUtilityBillSoftCopy varchar(10) NOT NULL,
     isNicSoftCopy varchar(10) NOT NULL,
+    status varchar(20) NOT NULL ,
     PRIMARY KEY (id)
 );
 
@@ -93,6 +94,7 @@ CREATE TABLE reservation (
     customerId int NOT NULL,
     startDate varchar(20) NOT NULL,
     endDate varchar(20) NOT NULL,
+    status varchar(50) NOT NULL ,
     PRIMARY KEY (id),
     FOREIGN KEY (vehicleId) REFERENCES vehicle(id) ,
     FOREIGN KEY (customerId) REFERENCES customer(id)
@@ -105,28 +107,11 @@ CREATE TABLE payment (
     amount double NOT NULL,
     type varchar(20) NOT NULL,
     about TEXT NOT NULL ,
-    date varchar(20) NOT NULL ,leDto
+    date varchar(20) NOT NULL ,
     PRIMARY KEY (id),
     FOREIGN KEY (reservationId) REFERENCES reservation(id)
 );
-CREATE TABLE offers(
-    id int NOT NULL AUTO_INCREMENT,
-    name VARCHAR(150) NOT NULL ,
-    PRIMARY KEY (id)
-);
 
-CREATE TABlE offerDetail(
-    id int NOT NULL AUTO_INCREMENT,
-    vehicleId int NOT NULL ,
-    offerId int NOT NULL ,
-    startDate varchar(20) NOT NULL ,
-    endDate varchar(20) NOT NULL ,
-    code varchar(150) NOT NULL ,
-    FOREIGN KEY (vehicleId) REFERENCES vehicle(id) ,
-    FOREIGN KEY (offerId) REFERENCES offers(id) ,
-    PRIMARY KEY (id)
-
-);
 
 INSERT INTO users VALUE (1,'1','1','gayanthaKavindu3@gmail.com','ADMIN');
 INSERT INTO users VALUE (2,'2','2','gayantha3@gmail.com','CASHIER');
@@ -140,38 +125,57 @@ INSERT INTO vehicleType(id,name) VALUES(1,'Sedan'),
 
 
 
-select * from customer where nic = '200117802995';
+SELECT registeredNumber
+FROM vehicle
+WHERE id NOT IN (SELECT DISTINCT vehicleId FROM reservation);
 
-select * from vehicleOwner;
+SELECT COUNT(*) AS numberOfVehiclesNotInReservation
+FROM vehicle
+         LEFT JOIN reservation ON vehicle.id = reservation.vehicleId
+WHERE reservation.id IS NULL;
 
-select * from vehicle;
-select * from vehicleLicenseDetails;
+SELECT COUNT(*) AS numberOfVehiclesNotInReservation
+FROM vehicle
+         LEFT JOIN reservation ON vehicle.id = reservation.vehicleId
+WHERE reservation.id IS NULL OR (reservation.startDate > CURDATE() OR reservation.endDate < CURDATE());
 
+SELECT COUNT(*) AS numberOfCustomer FROM customer;
+
+SELECT SUM(amount) AS totalTransaction FROM payment;
+
+DROP TABLE  reservation;
+DROP TABLE  payment;
+
+DELETE FROM payment WHERE id = 2;
+
+insert into customer values(3,'kavindu','gayantha','maggona','075647382','2329309093023','djkhdsjkadja','yes','yes','complete');
+insert into reservation values(5,1,3,'2023-12-01','2023-12-10','Completed');
+insert into reservation values(6,2,3,'2023-12-01','2023-12-10','On Renting');
 SELECT
-    v.id AS vehicle_id,
-    vt.name AS vehicle_type,
-    v.model,
-    v.perDayRate,
-    v.perAdditionalKmRate
+    r.id AS reservationId,
+    r.vehicleId,
+    v.model AS vehicleModel,
+    v.registeredNumber,
+    CONCAT(c.firstName, ' ', c.lastName) AS customerName,
+    r.startDate AS reservationDate,
+    r.endDate AS returnDate
 FROM
-    vehicle v
-        JOIN
-    vehicleType vt ON v.vehicleTypeId = vt.id
-        LEFT JOIN
-    reservation r ON v.id = r.vehicleId
-        AND (
-                             ('2023-10-20' BETWEEN r.startDate AND r.endDate)
-                             OR ('2023-10-30' BETWEEN r.startDate AND r.endDate)
-                             OR (r.startDate BETWEEN '2023-10-20' AND '2023-10-30')
-                         )
+    reservation rSELECT
+    r.status AS reservationStatus,
+    v.registeredNumber,
+    r.startDate,
+    r.endDate
+FROM
+    reservation r
+    JOIN
+    vehicle v ON r.vehicleId = v.id
 WHERE
-    r.id IS NULL
-   OR r.startDate IS NULL;
+    r.status = 'On Renting'
+        JOIN
+    vehicle v ON r.vehicleId = v.id
+        JOIN
+    customer c ON r.customerId = c.id
+WHERE
+        r.status = 'Completed';
 
-
-INSERT INTO reservation(id, vehicleId, customerId, startDate, endDate)  VALUES
- drop table payment;                                                                                    (1,'1','1','2023-10-15','2023-10-25');
-
-select * from reservation;
-
-select * from payment;
+delete from reservation where id = 5;

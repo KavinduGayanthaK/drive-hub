@@ -1,5 +1,7 @@
 package lk.ijse.driveHub.controller;
 
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,14 +22,17 @@ import javax.swing.*;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
-public class ReportFormController implements Initializable {
+public class ReportFormController implements Initializable{
     @FXML
-    private ComboBox<?> cmbSelectReport;
+    private ComboBox<String> cmbSelectReport;
 
-    @FXML
-    private AnchorPane reportPane;
+      @FXML
+      private ScrollPane scrollPane;
 
     @FXML
     private DatePicker txtFromDate;
@@ -37,32 +42,61 @@ public class ReportFormController implements Initializable {
 
     @FXML
     void GenerateReportBtnOnAction(ActionEvent event) {
+        if (cmbSelectReport.getValue().equals("Payment Report")) {
+            try {
 
-        try {
+                InputStream resourceAsStream = getClass().getResourceAsStream("/report/Pymentreport.jrxml");
+                JasperPrint jasperPrint = getJasperPrint(resourceAsStream);
 
-            InputStream resourceAsStream = getClass().getResourceAsStream("/report/Blank_A4_1.jrxml");
-            JasperPrint jasperPrint = getJasperPrint(resourceAsStream);
+                JasperViewer viewer = new JasperViewer(jasperPrint);
 
-            JasperViewer viewer = new JasperViewer(jasperPrint);
+                SwingNode swingNode = new SwingNode();
+                swingNode.setContent((JComponent) viewer.getContentPane());
 
-            SwingNode swingNode = new SwingNode();
-            swingNode.setContent((JComponent) viewer.getContentPane());
+                Platform.runLater(() ->{
+                    scrollPane.setContent(swingNode);
+                    scrollPane.setFitToWidth(true);
+                    scrollPane.setFitToHeight(true);
+                });
 
-            reportPane.getChildren().add(swingNode);
-            reportPane.setPrefWidth(viewer.getContentPane().getWidth());
-            reportPane.setPrefHeight(viewer.getContentPane().getHeight());
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else {
+            try {
+
+                InputStream resourceAsStream = getClass().getResourceAsStream("/report/ReservationReport.jrxml");
+                JasperPrint jasperPrint = getJasperPrint(resourceAsStream);
+
+                JasperViewer viewer = new JasperViewer(jasperPrint);
+
+                SwingNode swingNode = new SwingNode();
+                swingNode.setContent((JComponent) viewer.getContentPane());
+
+                Platform.runLater(() ->{
+                    scrollPane.setContent(swingNode);
+                    scrollPane.setFitToWidth(true);
+                    scrollPane.setFitToHeight(true);
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
     private JasperPrint getJasperPrint(InputStream inputStream) throws SQLException {
+        HashMap parameters = new HashMap<>();
+        parameters.put("fromDate",String.valueOf(txtFromDate.getValue()));
+        parameters.put("toDate",String.valueOf(txtToDate.getValue()));
+
         try {
             JasperDesign jasperDesign = JRXmlLoader.load(inputStream);
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
             return JasperFillManager.fillReport(
                     jasperReport,
-                    null,
+                    parameters,
                     DbConnection.getInstance().getConnection()
             );
         } catch (Exception e) {
@@ -72,9 +106,9 @@ public class ReportFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
-        }
+        cmbSelectReport.setItems(FXCollections.observableArrayList("Payment Report","Reservation Report"));
+        txtFromDate.setValue(LocalDate.now());
     }
+}
 
 

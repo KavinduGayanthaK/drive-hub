@@ -123,6 +123,7 @@ public class CustomerFormController {
         customerDto.setEmail(txtEmail.getText());
         customerDto.setIsNicSoftCopy(chbNicCopyValue);
         customerDto.setIsUtilityBillSoftCopy(chbUtilityBillCopyValue);
+        customerDto.setStatus("Active");
     }
 
     public void add(Stage stage,Stage reservationVehicleFormController) {

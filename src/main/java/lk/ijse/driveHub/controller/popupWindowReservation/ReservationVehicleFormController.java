@@ -107,6 +107,7 @@ public class ReservationVehicleFormController implements Initializable {
         reservationDto.setId(0);
         reservationDto.setStartDate(txtPickUpdate.getValue());
         reservationDto.setEndDate(txtReturnDate.getValue());
+        reservationDto.setStatus("On Renting");
     }
 
 

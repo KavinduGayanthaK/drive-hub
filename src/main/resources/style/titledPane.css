@@ -1,0 +1,7 @@
+/* styles.css */
+
+/* Customize the title bar background color */
+.titled-pane > .title {
+    -fx-background-color: linear-gradient(to right, #00B7D8, #188AF0);
+}
+

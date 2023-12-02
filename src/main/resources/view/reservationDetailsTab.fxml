@@ -19,13 +19,14 @@
         </JFXButton>
         <TableView fx:id="reservationTable" layoutX="15.0" layoutY="68.0" prefHeight="684.0" prefWidth="1278.0" style="-fx-background-radius: 5px;" stylesheets="@../style/table.css">
          <columns>
-            <TableColumn fx:id="idColumn" prefWidth="115.19997882843018" text="Reservation Id" />
-            <TableColumn fx:id="vehicleIdColumn" prefWidth="113.5999755859375" text="Vahicle Id" />
-            <TableColumn fx:id="vehicleModelColumn" prefWidth="220.80006408691406" text="Vehicle Model" />
-            <TableColumn fx:id="registeredNumberColumn" prefWidth="164.0" text="Registered Number" />
-            <TableColumn fx:id="customerNameColumn" prefWidth="180.0" text="Customer Name" />
-            <TableColumn fx:id="reservationDateColumn" prefWidth="184.0" text="Reservation Date" />
-            <TableColumn fx:id="returnDateColumn" prefWidth="194.39996337890625" text="Return Date" />
+            <TableColumn fx:id="idColumn" prefWidth="89.59997272491455" text="Reservation Id" />
+            <TableColumn fx:id="vehicleIdColumn" prefWidth="86.39999389648438" text="Vahicle Id" />
+            <TableColumn fx:id="vehicleModelColumn" prefWidth="174.40000915527344" text="Vehicle Model" />
+            <TableColumn fx:id="registeredNumberColumn" prefWidth="160.0" text="Registered Number" />
+            <TableColumn fx:id="customerNameColumn" prefWidth="184.00006103515625" text="Customer Name" />
+            <TableColumn fx:id="reservationDateColumn" prefWidth="168.00006103515625" text="Reservation Date" />
+            <TableColumn fx:id="returnDateColumn" prefWidth="155.199951171875" text="Return Date" />
+            <TableColumn fx:id="statusColumn" prefWidth="121.5999755859375" text="Status" />
          </columns></TableView>
     </children>
 

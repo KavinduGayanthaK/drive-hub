@@ -6,4 +6,10 @@
     -fx-background-color: linear-gradient(to left, #00B7D8, #188AF0);
 }
 
+.gridpane {
+    -fx-background-color: linear-gradient(to right,#5A5A5A, #FFFFFF);
+}
+
+
+
 

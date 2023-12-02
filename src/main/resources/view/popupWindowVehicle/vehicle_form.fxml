@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.CheckBox?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -59,7 +59,7 @@
                 </Label>
                 <Pane layoutX="-1.0" layoutY="559.0" prefHeight="74.0" prefWidth="777.0" styleClass="popupWindowButtonPane" stylesheets="@../../style/uiSettings.css">
                     <children>
-                        <JFXButton fx:id="closeBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="519.0" layoutY="17.0" onAction="#closeBtnOnAction" prefHeight="40.0" prefWidth="107.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CLOSE">
+                        <JFXButton fx:id="cancelBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="519.0" layoutY="17.0" onAction="#closeBtnOnAction" prefHeight="40.0" prefWidth="107.0" style="-fx-background-radius: 5px; -fx-background-color: #FFFFFF;" text="CANCEL">
                             <font>
                                 <Font name="System Bold" size="15.0" />
                             </font>
@@ -78,11 +78,6 @@
                 </Pane>
             <ComboBox fx:id="cmbTransmissionType" layoutX="470.0" layoutY="221.0" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
             <ComboBox fx:id="cmbVehicleType" layoutX="47.0" layoutY="123.0" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
-            <CheckBox fx:id="chbVehicleBook" layoutX="47.0" layoutY="509.0" mnemonicParsing="false" onAction="#chbVehicleBookCopyOnAction" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Did get a soft copy of vehicle book ?">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </CheckBox>
             <DatePicker fx:id="dateManufactureYear" layoutX="47.0" layoutY="221.0" prefHeight="40.0" prefWidth="258.0" />
             <TextField fx:id="txtPerDateRate" layoutX="47.0" layoutY="422.0" prefHeight="40.0" prefWidth="164.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
                <font>
@@ -116,6 +111,7 @@
             </Label>
             <ComboBox fx:id="cmbVehicleModel" layoutX="47.0" layoutY="319.0" onAction="#cmbVehicleModelOnAction" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
             <ComboBox fx:id="cmbVehicleBrand" layoutX="467.0" layoutY="123.0" onAction="#cmbVehicleBrandOnAction" prefHeight="40.0" prefWidth="258.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+            <JFXCheckBox fx:id="chbVehicleBook" layoutX="47.0" layoutY="497.0" onAction="#chbVehicleBookCopyOnAction" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Did get a soft copy of vehicle book ?" />
             </children>
         </AnchorPane>
         <Line endX="47.19999694824219" endY="485.0" layoutX="182.0" layoutY="146.0" startX="47.19999694824219" startY="-72.59999084472656" stroke="#999292" />

@@ -103,4 +103,48 @@ public class VehicleModel {
         }
         return vehicleTableDtoList;
     }
+
+
+    public boolean updateVehicle(VehicleDto vehicleDto) throws SQLException {
+        connection = DbConnection.getInstance().getConnection();
+        String sql = "UPDATE vehicle SET " +
+                "brand = ?," +
+                "model = ?," +
+                "vehicleTypeId = ?," +
+                " isCollectedBookCopy = ?," +
+                " manufactureYear = ?," +
+                " registeredNumber = ?," +
+                " transMissionType = ?," +
+                " perDayRate = ?," +
+                " perDayKm = ?," +
+                " perAdditionalKmRate = ? WHERE id = ? ";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,vehicleDto.getBrand());
+        preparedStatement.setString(2,vehicleDto.getModel());
+        preparedStatement.setInt(3,vehicleDto.getVehicleTypeId());
+        preparedStatement.setString(4,vehicleDto.getIsCollectedBookCopy());
+        preparedStatement.setString(5, String.valueOf(vehicleDto.getManufactureYear()));
+        preparedStatement.setString(6,vehicleDto.getRegisterNumber());
+        preparedStatement.setString(7,vehicleDto.getTransmissionType());
+        preparedStatement.setDouble(8,vehicleDto.getPerDayRate());
+        preparedStatement.setDouble(9,vehicleDto.getPerDayKm());
+        preparedStatement.setDouble(10,vehicleDto.getPerAdditionalKmRate());
+        preparedStatement.setInt(11,vehicleDto.getId());
+
+        boolean updateVehicle = preparedStatement.executeUpdate() > 0;
+
+        return updateVehicle;
+    }
+
+    public boolean deleteVehicle(int vehicleId) throws SQLException {
+        connection = DbConnection.getInstance().getConnection();
+        String sql = "DELETE FROM vehicle WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,vehicleId);
+
+        boolean isVehicleDeleted = preparedStatement.executeUpdate() > 0;
+        return isVehicleDeleted;
+    }
+
 }

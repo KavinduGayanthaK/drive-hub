@@ -16,15 +16,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import lk.ijse.driveHub.controller.openWindow.PopupWindows;
-import lk.ijse.driveHub.controller.popupWindowReservation.UpdateCustomerFormController;
-import lk.ijse.driveHub.controller.popupWindowVehicle.UpdateVehicleFormController;
+import lk.ijse.driveHub.controller.popupWindowVehicle.AddVehicleFormController;
+import lk.ijse.driveHub.controller.popupWindowVehicle.UpdateVehiclesFormController;
 import lk.ijse.driveHub.controller.popupWindowVehicle.VehicleOwnerFormController;
-import lk.ijse.driveHub.dto.VehicleDto;
-import lk.ijse.driveHub.dto.VehicleTypeDto;
-import lk.ijse.driveHub.dto.tableDto.CustomerTableDto;
 import lk.ijse.driveHub.dto.tableDto.VehicleTableDto;
+import lk.ijse.driveHub.model.VehicleInsuranceModel;
+import lk.ijse.driveHub.model.VehicleLicenseModel;
 import lk.ijse.driveHub.model.VehicleModel;
-import lk.ijse.driveHub.model.VehicleTypeModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,13 +57,29 @@ public class VehicleDetailsTabController implements Initializable {
     private JFXButton vehicleOnboardingBtn;
 
 
-    PopupWindows popupWindows = new PopupWindows();
+
     VehicleModel vehicleModel = new VehicleModel();
     public static VehicleTableDto vehicleTableDto = new VehicleTableDto();
+    VehicleLicenseModel vehicleLicenseModel = new VehicleLicenseModel();
+    VehicleInsuranceModel vehicleInsuranceModel = new VehicleInsuranceModel();
+    AddVehicleFormController addVehicleFormController = new AddVehicleFormController();
+
+    public VehicleDetailsTabController() throws SQLException {
+    }
 
     @FXML
     void createVehicleBtnOnAction(ActionEvent event) throws IOException {
-        popupWindows.window("/view/popupWindowVehicle/addVehicle_form.fxml","Vehicle Form");
+        URL resource = this.getClass().getResource("/view/popupWindowVehicle/addVehicle_form.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
+        Parent load = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("License Details");
+        stage.setScene(new Scene(load));
+        stage.centerOnScreen();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
+        stage.show();
+        addVehicleFormController.add(stage);
     }
 
     @FXML
@@ -136,19 +150,15 @@ public class VehicleDetailsTabController implements Initializable {
                             vehicleTableDto.setRegisteredNumber(data.getRegisteredNumber());
                             vehicleTableDto.setTransmissionType(data.getTransmissionType());
 
-
-
-                            //System.out.println("selectedData: " + data);
                             boolean isUpdated = updateBtnOnAction(data,btn);
                             if (isUpdated) {
-                                //loadAllCustomer();
+
                             }
 
                         });
                     }
                     private boolean updateBtnOnAction(VehicleTableDto data, Button btn) {
-                        UpdateVehicleFormController updateCustomerFormController = new UpdateVehicleFormController();
-                        btn .setOnAction((e) -> {
+
                             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
                             ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
 
@@ -156,7 +166,7 @@ public class VehicleDetailsTabController implements Initializable {
                                     "Are you want to change details ?", yes, no).showAndWait();
                             if (type.orElse(no) == yes) {
 
-                                URL resource = this.getClass().getResource("/view/popupWindowVehicle/updateVehicle_form.fxml");
+                                URL resource = this.getClass().getResource("/view/popupWindowVehicle/updateVehicles_form.fxml");
                                 FXMLLoader fxmlLoader = new FXMLLoader(resource);
                                 Parent load = null;
                                 try {
@@ -165,16 +175,14 @@ public class VehicleDetailsTabController implements Initializable {
                                     throw new RuntimeException(ex);
                                 }
                                 Stage stage = new Stage();
-                                stage.setTitle("Customer Form");
+                                stage.setTitle("Vehicle Form");
                                 stage.setScene(new Scene(load));
                                 stage.centerOnScreen();
                                 stage.initModality(Modality.APPLICATION_MODAL);
                                 stage.setResizable(false);
                                 stage.show();
-                                updateCustomerFormController.setData();
 
                             }
-                        });
                         return false;
                     }
 
@@ -212,48 +220,39 @@ public class VehicleDetailsTabController implements Initializable {
                         btn.setOnAction((ActionEvent event) -> {
 
                             VehicleTableDto data = getTableView().getItems().get(getIndex());
+                            boolean isDelete = deleteBtnOnAction(data,btn);
+                            if (isDelete) {
 
-
-                            //System.out.println("selectedData: " + data);
-//                            boolean isUpdated = updateBtnOnAction(data,btn);
-//                            if (isUpdated) {
-//                                loadAllCustomer();
-//                            }
+                            }
 
                         });
                     }
-//                    private boolean updateBtnOnAction(CustomerTableDto data, Button btn) {
-//                        UpdateCustomerFormController updateCustomerFormController = new UpdateCustomerFormController();
-//                        btn .setOnAction((e) -> {
-//                            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-//                            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
-//
-//                            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,
-//                                    "Are you want to change details ?", yes, no).showAndWait();
-//                            if (type.orElse(no) == yes) {
-//
-//                                URL resource = this.getClass().getResource("/view/popupWindowReservation/updateCustomer_form.fxml");
-//                                FXMLLoader fxmlLoader = new FXMLLoader(resource);
-//                                Parent load = null;
-//                                try {
-//                                    load = fxmlLoader.load();
-//                                } catch (IOException ex) {
-//                                    throw new RuntimeException(ex);
-//                                }
-//                                Stage stage = new Stage();
-//                                stage.setTitle("Customer Form");
-//                                stage.setScene(new Scene(load));
-//                                stage.centerOnScreen();
-//                                stage.initModality(Modality.APPLICATION_MODAL);
-//                                stage.setResizable(false);
-//                                stage.show();
-//                                updateCustomerFormController.setData();
-//
-//                            }
-//                        });
-//                        return false;
-//                    }
+                    private boolean deleteBtnOnAction(VehicleTableDto data, Button btn) {
+                            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+                            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
 
+                            Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION,
+                                    "Are you want to delete vehicle ?", yes, no).showAndWait();
+                            if (type.orElse(no) == yes) {
+                                try {
+                                    boolean isInsuranceDelete = vehicleInsuranceModel.deleteVehicle(data.getId());
+                                    if (isInsuranceDelete) {
+                                        boolean isLicenseDelete = vehicleLicenseModel.deleteVehicle(data.getId());
+                                        if (isLicenseDelete) {
+                                            boolean isVehicleDelete = vehicleModel.deleteVehicle(data.getId());
+                                            if (isVehicleDelete) {
+                                                vehicletable.refresh();
+                                                new Alert(Alert.AlertType.INFORMATION,"Delete successfully").show();
+                                            }
+                                        }
+                                    }
+                                } catch (SQLException ex) {
+                                    throw new RuntimeException(ex);
+                                }
+                            }
+
+                        return true;
+                    }
 
                     @Override
                     public void updateItem(Void item, boolean empty) {

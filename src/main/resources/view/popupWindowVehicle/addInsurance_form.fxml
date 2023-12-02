@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,7 +12,6 @@
 
 <AnchorPane prefHeight="519.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.popupWindowVehicle.AddInsuranceFormController">
     <children>
-        <TextField layoutX="27.0" layoutY="276.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
         <Label layoutX="27.0" layoutY="109.0" prefHeight="27.0" prefWidth="126.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="License Number">
             <font>
                 <Font name="System Bold" size="16.0" />
@@ -22,11 +22,6 @@
                 <Font name="System Bold" size="16.0" />
             </font>
         </Label>
-        <TextField layoutX="350.0" layoutY="137.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </TextField>
         <Label layoutX="350.0" layoutY="109.0" prefHeight="27.0" prefWidth="126.0" styleClass="lable" stylesheets="@../../style/uiSettings.css" text="Issue Date">
             <font>
                 <Font name="System Bold" size="16.0" />
@@ -65,7 +60,9 @@
                 </JFXButton>
             </children>
         </Pane>
-        <TextField layoutX="21.0" layoutY="137.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+        <TextField fx:id="txtInsuranceNumber" layoutX="21.0" layoutY="137.0" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="text-field" stylesheets="@../../style/uiSettings.css" />
+      <DatePicker fx:id="txtExpiryDate" layoutX="21.0" layoutY="288.0" prefHeight="40.0" prefWidth="282.0" stylesheets="@../../style/uiSettings.css" />
+      <DatePicker fx:id="txtIssueDate" layoutX="342.0" layoutY="137.0" prefHeight="40.0" prefWidth="282.0" stylesheets="@../../style/uiSettings.css" />
     </children>
 
 

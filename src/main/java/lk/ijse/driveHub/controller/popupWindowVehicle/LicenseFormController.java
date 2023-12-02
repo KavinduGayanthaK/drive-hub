@@ -7,8 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lk.ijse.driveHub.controller.openWindow.PopupWindows;
@@ -18,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static lk.ijse.driveHub.controller.popupWindowVehicle.VehicleFormController.vehicleFormController;
@@ -30,12 +30,14 @@ public class LicenseFormController implements Initializable {
     private DatePicker txtIssueDate;
     @FXML
     private TextField txtLicenseNumber;
+    @FXML
+    private JFXButton cancelBtn;
 
 
-    PopupWindows popupWindows = new PopupWindows();
-    static Stage licenseFormController;
+
+    static Stage licenseFormController = new Stage();
     static VehicleLicenseDto vehicleLicenseDto = new VehicleLicenseDto();
-    static InsuranceFormController insuranceFormController = new InsuranceFormController();
+     InsuranceFormController insuranceFormController = new InsuranceFormController();
 
     @FXML
     void backBtnOnAction(ActionEvent event) throws IOException, SQLException {
@@ -44,9 +46,18 @@ public class LicenseFormController implements Initializable {
         vehicleFormController.show();
     }
 
+
     @FXML
     void cancelBtnOnAction(ActionEvent event) throws IOException {
-        popupWindows.window("/view/popupWindowVehicle/cancel_form.fxml","Cancel Form");
+        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
+
+        Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,
+                "Are you want to cancel vehicle onboarding process ?", yes, no).showAndWait();
+        if (type.orElse(no) == yes) {
+            Stage stage = (Stage) cancelBtn.getScene().getWindow();
+            stage.close();
+        }
     }
 
     @FXML
@@ -85,5 +96,13 @@ public class LicenseFormController implements Initializable {
         txtLicenseNumber.setText(vehicleLicenseDto.getLicenseNumber());
         txtIssueDate.setValue(vehicleLicenseDto.getIssueDate());
         txtExpiryDate.setValue(vehicleLicenseDto.getExpiryDate());
+    }
+
+    public static void clearDto() {
+        vehicleLicenseDto.setId(0);
+        vehicleLicenseDto.setVehicleId(0);
+        vehicleLicenseDto.setLicenseNumber(null);
+        vehicleLicenseDto.setIssueDate(null);
+        vehicleLicenseDto.setExpiryDate(null);
     }
 }

@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import lk.ijse.driveHub.controller.popupWindowVehicle.UpdateOwnerFormController;
 import lk.ijse.driveHub.dto.VehicleOwnerDto;
 import lk.ijse.driveHub.dto.tableDto.CustomerTableDto;
 import lk.ijse.driveHub.dto.tableDto.OwnerTableDto;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 //import static sun.security.pkcs11.wrapper.Functions.getId;
 
@@ -51,6 +53,8 @@ public class OwnerDetailsTabController {
 
     @FXML
     private TableView<OwnerTableDto> ownerTable;
+    VehicleOwnerModel vehicleOwnerModel = new VehicleOwnerModel();
+   public  static OwnerTableDto ownerTableDto = new OwnerTableDto();
 
 
     public void initialize() {
@@ -120,9 +124,28 @@ public class OwnerDetailsTabController {
                             System.out.println("selectedData: " + data);
                             boolean deleted = deleteBtnOnAction(data.getId(),button);
                             if (deleted) {
-                                loadAllOwner();
                             }
                         });
+                    }
+                    public boolean deleteBtnOnAction(int id, JFXButton button) {
+                        button .setOnAction((e) -> {
+                            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+                            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
+
+                            Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION,
+                                    "Are you want to delete owner ?", yes, no).showAndWait();
+                            if (type.orElse(no) == yes) {
+                                try {
+                                    boolean isDeleteOwner = vehicleOwnerModel.deleteVehicle(id);
+                                    if (isDeleteOwner) {
+                                        new Alert(Alert.AlertType.INFORMATION,"Delete successfully").show();
+                                    }
+                                } catch (SQLException ex) {
+                                    throw new RuntimeException(ex);
+                                }
+                            }
+                        });
+                        return true;
                     }
                     @Override
                     public void updateItem(Void item, boolean empty) {
@@ -146,10 +169,6 @@ public class OwnerDetailsTabController {
         ownerTable.getColumns().add(colBtn);
     }
 
-    public boolean deleteBtnOnAction(int id, JFXButton button) {
-
-        return false;
-    }
 
     private void updateButtonToTable() {
         TableColumn<OwnerTableDto, Void> colBtn = new TableColumn("Action");
@@ -162,17 +181,48 @@ public class OwnerDetailsTabController {
                         button.setOnAction((ActionEvent event) -> {
 
                             OwnerTableDto data = getTableView().getItems().get(getIndex());
-                            System.out.println("selectedData: " + data);
+                            ownerTableDto.setId(data.getId());
+                            ownerTableDto.setFirstName(data.getFirstName());
+                            ownerTableDto.setLastName(data.getLastName());
+                            ownerTableDto.setAddress(data.getAddress());
+                            ownerTableDto.setNic(data.getNic());
+                            ownerTableDto.setMobileNumber(data.getMobileNumber());
+                            ownerTableDto.setEmail(data.getEmail());
+
                             boolean isUpdated = updateBtnOnAction(data.getId(),button);
                             if (isUpdated) {
-                                loadAllOwner();
+                                //loadAllOwner();
                             }
                         });
                     }
 
                     private boolean updateBtnOnAction(int id, JFXButton button) {
 
+                        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+                        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
 
+                        Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION,
+                                "Are you want to change details ?", yes, no).showAndWait();
+                        if (type.orElse(no) == yes) {
+
+                            URL resource = this.getClass().getResource("/view/popupWindowVehicle/updateOwner_form.fxml");
+                            FXMLLoader fxmlLoader = new FXMLLoader(resource);
+                            Parent load = null;
+                            try {
+                                load = fxmlLoader.load();
+                            } catch (IOException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                            Stage stage = new Stage();
+                            stage.setTitle("Owner Form");
+                            stage.setScene(new Scene(load));
+                            stage.centerOnScreen();
+                            stage.initModality(Modality.APPLICATION_MODAL);
+                            stage.setResizable(false);
+                            stage.show();
+
+
+                        }
                         return false;
                     }
 
@@ -197,12 +247,7 @@ public class OwnerDetailsTabController {
         ownerTable.getColumns().add(colBtn);
     }
 
-//    private void tableListener() {
-//        tblItem.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
-////            System.out.println(newValue);
-//            setData(newValue);
-//        });
-//    }
+
 
 
 }

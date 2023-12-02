@@ -1,6 +1,7 @@
 package lk.ijse.driveHub.controller.popupWindowVehicle;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,13 +10,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import lk.ijse.driveHub.controller.openWindow.PopupWindows;
 import lk.ijse.driveHub.dto.VehicleDto;
 import lk.ijse.driveHub.dto.VehicleOwnerDto;
 import lk.ijse.driveHub.dto.VehicleTypeDto;
@@ -25,15 +22,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class VehicleFormController implements Initializable {
     @FXML
     private JFXButton backBtn;
     @FXML
-    private CheckBox chbVehicleBook;
+    private JFXCheckBox chbVehicleBook;
     @FXML
-    private JFXButton closeBtn;
+    private JFXButton cancelBtn;
     @FXML
     private ComboBox<String> cmbTransmissionType;
     @FXML
@@ -62,7 +60,7 @@ public class VehicleFormController implements Initializable {
     private TextField txtPerDayKm;
 
     private String chbVehicleBookValue;
-    PopupWindows popupWindows = new PopupWindows();
+
     static Stage vehicleFormController = new Stage();
     LicenseFormController licenseFormController = new LicenseFormController();
     static VehicleDto vehicleDto = new VehicleDto();
@@ -79,8 +77,15 @@ public class VehicleFormController implements Initializable {
     }
     @FXML
     void closeBtnOnAction(ActionEvent event) throws IOException {
-        popupWindows.window("/view/popupWindowVehicle/cancel_form.fxml","Cancel Form");
+        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
 
+        Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,
+                "Are you want to cancel vehicle onboarding process ?", yes, no).showAndWait();
+        if (type.orElse(no) == yes) {
+            Stage stage = (Stage) cancelBtn.getScene().getWindow();
+            stage.close();
+        }
     }
 
     @FXML
@@ -139,17 +144,17 @@ public class VehicleFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        loadAllVehicleType();
         cmbVehicleType.setValue(vehicleTypeDto.getName());
         cmbVehicleBrand.setValue(vehicleDto.getBrand());
         dateManufactureYear.setValue(vehicleDto.getManufactureYear());
         cmbTransmissionType.setValue(vehicleDto.getTransmissionType());
         cmbVehicleModel.setValue(vehicleDto.getModel());
         txtRegisterNumber.setText(vehicleDto.getRegisterNumber());
-        loadAllVehicleType();
         cmbTransmissionType.setItems(FXCollections.observableArrayList("Auto","Manual"));
         cmbVehicleBrand.setItems(FXCollections.observableArrayList("TOYOTA","AUDI","HONDA"));
-        txtPerDayKm.setText(String.valueOf(vehicleDto.getPerDayKm()));
         txtPerDateRate.setText(String.valueOf(vehicleDto.getPerDayRate()));
+        txtPerDayKm.setText(String.valueOf(vehicleDto.getPerDayKm()));
         txtPerAdditionalKmRate.setText(String.valueOf(vehicleDto.getPerAdditionalKmRate()));
 
         cmbVehicleBrand.setOnAction(e-> {
@@ -194,7 +199,8 @@ public class VehicleFormController implements Initializable {
     private void setCmbVehicleModelSetValues() {
 
     }
-    public ObservableList<String> setCmbVehicleModelToyota() {
+
+    public  ObservableList<String> setCmbVehicleModelToyota() {
         cmbVehicleModel.setItems(FXCollections.observableArrayList(
                 "Corolla HatchBack",
                 "CHR",
@@ -208,7 +214,6 @@ public class VehicleFormController implements Initializable {
                 "Allion"));
         return null;
     }
-
 
     private ObservableList<String> setCmbVehicleModelHonda() {
         cmbVehicleModel.setItems(FXCollections.observableArrayList(
@@ -242,7 +247,18 @@ public class VehicleFormController implements Initializable {
         return null;
     }
 
-
-
-
+    public static void clearDto() {
+        vehicleDto.setId(0);
+        vehicleDto.setVehicleTypeId(0);
+        vehicleDto.setOwnerId(0);
+        vehicleDto.setModel(null);
+        vehicleDto.setBrand(null);
+        vehicleDto.setRegisterNumber(null);
+        vehicleDto.setIsCollectedBookCopy(null);
+        vehicleDto.setPerDayKm(0);
+        vehicleDto.setPerDayRate(0);
+        vehicleDto.setPerAdditionalKmRate(0);
+        vehicleDto.setManufactureYear(null);
+        vehicleDto.setTransmissionType(null);
+    }
 }

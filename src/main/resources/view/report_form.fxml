@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -29,11 +30,10 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="reportPane" layoutX="410.0" layoutY="12.0" prefHeight="770.0" prefWidth="877.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px;" stylesheets="@../style/newPane.css">
-         <styleClass>
-            <String fx:value="shadow" />
-            <String fx:value="shadow2" />
-         </styleClass>
-      </AnchorPane>
+      <ScrollPane fx:id="scrollPane" layoutX="417.0" layoutY="14.0" prefHeight="770.0" prefWidth="877.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

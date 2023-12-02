@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="794.0" prefWidth="1342.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.tabPane.CompleteReservationTabFormController">
+    <children>
+        <TableView fx:id="completeReservationTable" layoutX="15.0" layoutY="68.0" prefHeight="684.0" prefWidth="1278.0" style="-fx-background-radius: 5px;" stylesheets="@../style/table.css">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="115.19997882843018" text="Reservation Id" />
+                <TableColumn fx:id="vehicleIdColumn" prefWidth="113.5999755859375" text="Vahicle Id" />
+                <TableColumn fx:id="vehicleModelColumn" prefWidth="220.80006408691406" text="Vehicle Model" />
+                <TableColumn fx:id="registeredNumberColumn" prefWidth="164.0" text="Registered Number" />
+                <TableColumn fx:id="customerNameColumn" prefWidth="180.0" text="Customer Name" />
+                <TableColumn fx:id="reservationDateColumn" prefWidth="184.0" text="Reservation Date" />
+                <TableColumn fx:id="returnDateColumn" prefWidth="162.39984130859375" text="Return Date" />
+            <TableColumn fx:id="statusColumn" prefWidth="137.60009765625" text="Status" />
+            </columns></TableView>
+    </children>
+
+
+</AnchorPane>

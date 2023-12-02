@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="80.0" prefWidth="1100.0" style="-fx-border-radius: 10px; -fx-background-radius: 10px;" styleClass="calender" stylesheets="@../style/gradiant.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.popupWindowReservation.ReservationCalenderGridPaneFormController">
+   <children>
+      <Label layoutX="557.0" layoutY="3.0" prefHeight="26.0" prefWidth="115.0" styleClass="gridLabel" stylesheets="@../style/uiSettings.css" text="End Date">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblrenting" layoutX="879.0" layoutY="16.0" prefHeight="46.0" prefWidth="193.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="281.0" layoutY="2.0" prefHeight="26.0" prefWidth="115.0" styleClass="gridLabel" stylesheets="@../style/uiSettings.css" text="Start Date" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRegisterNumber" layoutX="14.0" layoutY="15.0" prefHeight="46.0" prefWidth="115.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblStartDate" layoutX="281.0" layoutY="24.0" prefHeight="34.0" prefWidth="115.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEndDate" layoutX="557.0" layoutY="24.0" prefHeight="34.0" prefWidth="115.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="1075.0" prefHeight="80.0" prefWidth="17.0" style="-fx-background-color: #BDC3C7; -fx-background-radius: 10px; -fx-background-radius: 10px;" />
+   </children>
+</AnchorPane>

@@ -8,15 +8,20 @@
    <children>
       <TabPane layoutX="-2.0" prefHeight="794.0" prefWidth="1342.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="vehicleDetailsTab" text="VEHICLE DETAILS">
+          <Tab fx:id="vehicleDetailsTab" text="Vehicle Details">
             <content>
              <fx:include source="vehicleDetailsTab.fxml" />
             </content>
           </Tab>
-            <Tab fx:id="OwnerDetailsTab" text="OWNER DETAILS">
+            <Tab fx:id="OwnerDetailsTab" text="Owner Details">
               <content>
                <fx:include source="ownerDetailsTab.fxml" />
               </content>
+            </Tab>
+            <Tab fx:id="LicenseInsuranceTab" text="License  Insurance Details">
+               <content>
+                  <fx:include source="licenseInsuranceTab_form.fxml" />
+               </content>
             </Tab>
         </tabs>
       </TabPane>

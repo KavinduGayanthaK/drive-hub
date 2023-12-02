@@ -15,5 +15,6 @@ public class ReservationDto {
     private int customerId;
     private LocalDate startDate;
     private LocalDate endDate;
+    private String status;
 
 }

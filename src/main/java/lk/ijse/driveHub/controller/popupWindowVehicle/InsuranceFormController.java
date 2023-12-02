@@ -4,9 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lk.ijse.driveHub.dto.VehicleDto;
 import lk.ijse.driveHub.dto.VehicleInsuranceDto;
@@ -20,7 +18,10 @@ import lk.ijse.driveHub.model.VehicleOwnerModel;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static lk.ijse.driveHub.controller.popupWindowVehicle.LicenseFormController.licenseFormController;
 
 public class InsuranceFormController implements Initializable {
     @FXML
@@ -33,31 +34,35 @@ public class InsuranceFormController implements Initializable {
     private TextField txtInsuranceNumber;
     @FXML
     private DatePicker txtIssueDate;
-
     @FXML
-    private DatePicker txtxExpiryDate;
+    private DatePicker txtExpiryDate;
 
-
-    //static Stage licenseFormController;
-    static Stage insuranceFormController;
+    static Stage insuranceFormController = new Stage();
     VehicleInsuranceDto vehicleInsuranceDto = new VehicleInsuranceDto();
     VehicleInsuranceModel vehicleInsuranceModel = new VehicleInsuranceModel();
     VehicleLicenseModel vehicleLicenseModel = new VehicleLicenseModel();
     VehicleModel vehicleModel = new VehicleModel();
     VehicleOwnerModel vehicleOwnerModel = new VehicleOwnerModel();
-    VehicleFormController vehicleFormController = new VehicleFormController();
-
 
     @FXML
     void backBtnOnAction(ActionEvent event) {
         setValues();
-        LicenseFormController.licenseFormController.show();
         insuranceFormController.close();
+        licenseFormController.show();
+
     }
 
     @FXML
     void cancelBtnOnAction(ActionEvent event) {
+        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.NO);
 
+        Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,
+                "Are you want to cancel add vehicle ?", yes, no).showAndWait();
+        if (type.orElse(no) == yes) {
+            Stage stage = (Stage) cancelBtn.getScene().getWindow();
+            stage.close();
+        }
     }
 
     @FXML
@@ -66,19 +71,35 @@ public class InsuranceFormController implements Initializable {
             vehicleOwnerModel.saveOwner(VehicleOwnerFormController.vehicleOwnerDto);
             if (VehicleOwnerFormController.vehicleOwnerDto.getId() != 0) {
                 VehicleFormController.vehicleDto.setOwnerId(VehicleOwnerFormController.vehicleOwnerDto.getId());
+                VehicleOwnerFormController.clearDto();
+
                 vehicleModel.saveVehicle(VehicleFormController.vehicleDto);
                 if (VehicleFormController.vehicleDto.getId() != 0) {
                     LicenseFormController.vehicleLicenseDto.setVehicleId(VehicleFormController.vehicleDto.getId());
-                    vehicleLicenseModel.saveLicense(LicenseFormController.vehicleLicenseDto);
 
+                    vehicleLicenseModel.saveLicense(LicenseFormController.vehicleLicenseDto);
                     if (LicenseFormController.vehicleLicenseDto.getId() != 0) {
                         vehicleInsuranceDto.setId(0);
                         vehicleInsuranceDto.setVehicleId(VehicleFormController.vehicleDto.getId());
                         vehicleInsuranceDto.setInsuranceNumber(txtInsuranceNumber.getText());
                         vehicleInsuranceDto.setIssueDate(txtIssueDate.getValue());
-                        vehicleInsuranceDto.setExpiryDate(txtxExpiryDate.getValue());
+                        vehicleInsuranceDto.setExpiryDate(txtExpiryDate.getValue());
                         vehicleInsuranceDto.setVehicleId(VehicleFormController.vehicleDto.getId());
+
                         vehicleInsuranceModel.saveInsurance(vehicleInsuranceDto);
+                        if (vehicleInsuranceDto.getId() != 0) {
+                            ButtonType ok = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+                            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,
+                                    "Saved successfully", ok).showAndWait();
+                            if (type.isPresent()) {
+                                VehicleFormController.clearDto();
+                                LicenseFormController.clearDto();
+                                clearDto();
+
+                                Stage stage = (Stage) submitBtn.getScene().getWindow();
+                                stage.close();
+                            }
+                        }
                     }
                 }
             }
@@ -91,7 +112,7 @@ public class InsuranceFormController implements Initializable {
         vehicleInsuranceDto.setVehicleId(VehicleFormController.vehicleDto.getId());
         vehicleInsuranceDto.setInsuranceNumber(txtInsuranceNumber.getText());
         vehicleInsuranceDto.setIssueDate(txtIssueDate.getValue());
-        vehicleInsuranceDto.setExpiryDate(txtxExpiryDate.getValue());
+        vehicleInsuranceDto.setExpiryDate(txtExpiryDate.getValue());
     }
     public void add(Stage licenseFormController,Stage insuranceFormController){
         LicenseFormController.licenseFormController = licenseFormController;
@@ -102,6 +123,13 @@ public class InsuranceFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         txtInsuranceNumber.setText(vehicleInsuranceDto.getInsuranceNumber());
         txtIssueDate.setValue(vehicleInsuranceDto.getIssueDate());
-        txtxExpiryDate.setValue(vehicleInsuranceDto.getExpiryDate());
+        txtExpiryDate.setValue(vehicleInsuranceDto.getExpiryDate());
+    }
+    public void clearDto() {
+        vehicleInsuranceDto.setId(0);
+        vehicleInsuranceDto.setVehicleId(0);
+        vehicleInsuranceDto.setInsuranceNumber(null);
+        vehicleInsuranceDto.setIssueDate(null);
+        vehicleInsuranceDto.setExpiryDate(null);
     }
 }

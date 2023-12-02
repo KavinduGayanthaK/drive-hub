@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="794.0" prefWidth="1342.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driveHub.controller.tabPane.LicenseInsuranceTabFormController">
+<children>
+      <Label layoutX="25.0" layoutY="42.0" prefHeight="43.0" prefWidth="248.0" text="License Details">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="687.0" layoutY="42.0" prefHeight="43.0" prefWidth="248.0" text="Insurance Details">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="insuranceDetailsTbl" layoutX="685.0" layoutY="91.0" prefHeight="459.0" prefWidth="615.0" stylesheets="@../style/table.css">
+         <columns>
+            <TableColumn fx:id="iTblIdColumn" prefWidth="63.99996566772461" text="Id" />
+            <TableColumn fx:id="iTblVehicleIDColumn" prefWidth="73.5999755859375" text="Vehicle ID" />
+            <TableColumn fx:id="iTblInsuranceNumberColumn" prefWidth="160.00001525878906" text="Insuranse Number" />
+            <TableColumn fx:id="iTblIssueDateColumn" prefWidth="128.0" text="Issue Date" />
+            <TableColumn fx:id="iTblExpiryDateColumn" prefWidth="112.79998779296875" text="Expiry Date" />
+         </columns>
+      </TableView>
+      <TableView fx:id="licenseDetailsTbl" layoutX="25.0" layoutY="91.0" prefHeight="459.0" prefWidth="615.0" stylesheets="@../style/table.css">
+         <columns>
+            <TableColumn fx:id="lTblIdColumn1" prefWidth="63.99996566772461" text="Id" />
+            <TableColumn fx:id="lTblVehicleIDColumn1" prefWidth="73.5999755859375" text="Vehicle ID" />
+            <TableColumn fx:id="lTblLicenseNumberColumn1" prefWidth="160.00001525878906" text="License Number" />
+            <TableColumn fx:id="lTblIssueDateColumn1" prefWidth="128.0" text="Issue Date" />
+            <TableColumn fx:id="lTblExpiryDateColumn1" prefWidth="112.79998779296875" text="Expiry Date" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtEmail" layoutX="896.0" layoutY="700.0" prefHeight="43.0" prefWidth="295.0" promptText="drivehub@gmail.com" style="-fx-border-radius: 10px; -fx-background-radius: 10px;" styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+      <JFXButton layoutX="1206.0" layoutY="702.0" onAction="#sendBtnOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px;" styleClass="calender" stylesheets="@../style/gradiant.css" text="SEND" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="43.0" fitWidth="51.0" layoutX="845.0" layoutY="700.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/icon/icons8-mail-48.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="txtReson" layoutX="25.0" layoutY="615.0" prefHeight="133.0" prefWidth="762.0" promptText="Write the relevent reason here.." styleClass="text-field" stylesheets="@../style/uiSettings.css" />
+</children>
+</AnchorPane>

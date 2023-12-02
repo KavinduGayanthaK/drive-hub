@@ -36,3 +36,9 @@
 .deleteBtn {
     -fx-background-color: linear-gradient(to right, #dc4242, #ff5e5e);
 }
+.gridLabel{
+    -fx-text-fill:#FFFFFF ;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: Segoe UI;
+}
